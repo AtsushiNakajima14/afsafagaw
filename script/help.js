@@ -31,29 +31,29 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
       const start = (page - 1) * 15;
       const end = Math.min(start + 15, totalCommands);
 
-      let helpMessage = `━━━━━━━━━━━━━━━\n`;
+      let helpMessage = `━━━━━━━━━━━━━━━━\n`;
       for (let i = start; i < end; i++) {
         helpMessage += `• ${commands[i]}\n`;
       }
 
-      helpMessage += `━━━━━━━━━━━━━━━\n`;
+      helpMessage += `━━━━━━━━━━━━━━━━\n`;
       helpMessage += `━━━COMMAND PAGE: <${page}/${pages}>━━━\n`;
-      helpMessage += `━━━━SEMBLANCE AUTOBOT━━━━\n`;
+      helpMessage += `━━━SEMBLANCE AUTOBOT━━━\n`;
       helpMessage += `Developer: Cyril Matt O. Encenso\n`;
-      helpMessage += `Total commands: ${totalCommands} - ${description}\n`;
+      helpMessage += `Total commands: ${totalCommands}\n`;
       helpMessage += `Type "help all" to see all commands.`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
     } else if (input.toLowerCase() === 'all') {
-      let helpMessage = `━━━━━━━━━━━━━━━\n`;
+      let helpMessage = `━━━━━━━━━━━━━━━━\n`;
       for (let i = 0; i < totalCommands; i++) {
         helpMessage += ` • ${commands[i]}\n`;
       }
 
-      helpMessage += `━━━━━━━━━━━━━━━\n`;
-      helpMessage += `━━━SEMBLANCE AUTOBOT━━━\n`;
+      helpMessage += `━━━━━━━━━━━━━━━━\n`;
+      helpMessage += `━━━━SEMBLANCE AUTOBOT━━━━\n`;
       helpMessage += `Developer: Cyril Matt O. Encenso\n`;
-      helpMessage += `Total commands: ${totalCommands} - ${description}\n`;
+      helpMessage += `Total commands: ${totalCommands}\n`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
     } else {
