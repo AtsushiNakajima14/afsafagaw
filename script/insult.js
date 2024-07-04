@@ -20,7 +20,7 @@ module.exports.run = async ({
   try {
     const response = await axios.get('https://evilinsult.com/generate_insult.php?lang=en&type=json');
     const insult = response.data.insult;
-    api.sendMessage(`Here's a random insult for you: ${insult}`, threadID);
+    api.sendMessage(`${insult}`, threadID);
   } catch (error) {
     api.sendMessage("Sorry, I couldn't fetch an insult at the moment. Please try again later.", threadID, messageID);
   }
