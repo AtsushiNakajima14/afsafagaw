@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Churchilli</title>
+    <title>SemBlance Messenger Bot V2</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
@@ -9,38 +9,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">𝗛𝗼𝗺𝗲 </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="margin-right: 70px;">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Features </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Cookies Extractor</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/step_by_step_guide">Step-by-Step Guide</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="online_user">Active</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact">contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Developer">Developer</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
     <div class="container">
-        <h1 class="col text-center" style="font-size: 20px; padding: 10px;">𝙀𝙣𝙩𝙚𝙧 𝙮𝙤𝙪𝙧 𝘼𝙥𝙥𝙨𝙩𝙖𝙩𝙚</h1>
+        <h1 class="text-center">Enter Appstate</h1>
         <form id="json-form" onsubmit="submitForm(event)">
             <div class="row">
                 <div class="col-md-12">
@@ -48,28 +18,28 @@
                 </div>
             </div>
         </form>
-        <p style=" margin-top: 10px; color: #FFFFFF">Greetings! Begin by entering your cookie. Scroll down to see other features</p>
-        <div class="container" id="listOfCommands">
-            <h1 style="font-size: 16px; padding: 10px;">𝗣𝗹𝗲𝗮𝘀𝗲 𝗰𝗵𝗼𝗼𝘀𝗲 𝘆𝗼𝘂𝗿 𝗰𝗼𝗺𝗺𝗮𝗻𝗱𝘀 𝗯𝘆 𝘁𝗮𝗽𝗽𝗶𝗻𝗴 𝗼𝗻 𝘁𝗵𝗲 𝗿𝗲𝘀𝗽𝗲𝗰𝘁𝗶𝘃𝗲 𝗼𝗽𝘁𝗶𝗼𝗻𝘀.</h1>
+        <p>Greetings! Begin by entering your Appstate. Scroll down to see other features.</p>
+        <div id="listOfCommands" class="container">
+            <h1>Please choose your commands by tapping on the respective options.</h1>
             <button class="btn btn-primary" onclick="selectAllCommands()">Select all commands</button>
         </div>
-        <div class="container" id="listOfCommandsEvent">
-            <h1 style="font-size: 16px; padding: 10px;">𝗣𝗹𝗲𝗮𝘀𝗲 𝗰𝗵𝗼𝗼𝘀𝗲 𝘆𝗼𝘂𝗿 𝗲𝘃𝗲𝗻𝘁 𝗰𝗼𝗺𝗺𝗮𝗻𝗱𝘀 𝗯𝘆 𝘁𝗮𝗽𝗽𝗶𝗻𝗴 𝗼𝗻 𝘁𝗵𝗲 𝗿𝗲𝘀𝗽𝗲𝗰𝘁𝗶𝘃𝗲 𝗼𝗽𝘁𝗶𝗼𝗻𝘀.</h1>
+        <div id="listOfCommandsEvent" class="container">
+            <h1>Please choose your event commands by tapping on the respective options.</h1>
             <button class="btn btn-primary" onclick="selectAllEvents()">Select all events</button>
         </div>
-        <div class="container" id="prefixOfCommands">
-            <h1 style="font-size: 16px; padding: 10px;">Please provide a prefix (optional)(choose one) .$,  #,  @,  &,  !,  ?,  +,  /,  *,  -,  %,  ✓, •,  ×,  },  {,  ∆, §, ~, |, π, ÷, =, €</h1>
+        <div id="prefixOfCommands" class="container">
+            <h1>Please provide a prefix (optional) (choose one): . $, #, @, &, !, ?, +, /, *, -, %, ✓, •, ×, }, {, ∆, §, ~, |, π, ÷, =, €</h1>
             <input type="text" id="inputOfPrefix">
         </div>
-        <div class="container" id="adminOfCommands">
-            <h1 style="font-size: 16px; padding: 10px;">𝗣𝗹𝗲𝗮𝘀𝗲 𝗽𝗿𝗼𝘃𝗶𝗱𝗲 𝗮𝗻 𝘂𝗶𝗱 (𝗼𝗽𝘁𝗶𝗼𝗻𝗮𝗹). 𝗜𝗳 𝘆𝗼𝘂 𝗰𝗵𝗼𝗼𝘀𝗲 𝗻𝗼𝘁 𝘁𝗼, 𝗲𝗻𝘁𝗲𝗿𝗶𝗻𝗴 '𝗱𝗲𝗳𝗮𝘂𝗹𝘁' 𝘄𝗶𝗹𝗹 𝗯𝗲 𝗰𝗼𝗻𝘀𝗶𝗱𝗲𝗿𝗲𝗱 𝗮𝘀 𝘆𝗼𝘂𝗿 𝗶𝗻𝗽𝘂𝘁</h1>
+        <div id="adminOfCommands" class="container">
+            <h1>Please provide a UID (optional). If you choose not to, entering 'default' will be considered as your input.</h1>
             <input type="text" id="inputOfAdmin">
         </div>
-        <label style="font-size: 14px; display: flex; align-items: center; padding: 22px;">
-            <input type="checkbox" id="agreeCheckbox" style="color: #FFF; margin-right: 10px;"> Checking this box certifies that I have read, understood, and agreed to the Terms and Conditions. 
+        <label class="d-flex align-items-center">
+            <input type="checkbox" id="agreeCheckbox" style="margin-right: 10px;"> I certify that I have read, understood, and agreed to the Terms and Conditions.
         </label>
-        <div class="col text-center">
-            <button class="btn btn-primary" onclick="State()" disabled id="submitButton" style="width: 100%">Submit</button>
+        <div class="text-center">
+            <button class="btn btn-primary" onclick="State()" disabled id="submitButton">Submit</button>
         </div>
     </div>
     <div id="result" class="container text-center" style="display: none;"></div>
@@ -82,65 +52,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
-
-
-    <script>
-        var encodedCredits = "QXV0b2JvdCBCeQpDaHVyY2hpbGwgQWJpbmc=";
-        
-        function showCredits() {
-            var decodedCredits = atob(encodedCredits);
-            var creditsDiv = document.createElement('div');
-            creditsDiv.style.fontSize = '25px';
-            creditsDiv.style.marginTop = '20px';
-            creditsDiv.innerHTML = decodedCredits.split('\n').map(function(item, idx) {
-                return `<span class="animated-text">${item}</span>`;
-            }).join('<br>');
-            document.body.appendChild(creditsDiv);
-            animateText();
-        }
-
-        function animateText() {
-            var animatedTexts = document.querySelectorAll('.animated-text');
-            animatedTexts.forEach(function(el) {
-                var text = el.textContent;
-                el.innerHTML = '';
-                for (var i = 0; i < text.length; i++) {
-                    var span = document.createElement('span');
-                    span.textContent = text[i];
-                    el.appendChild(span);
-                }
-            });
-            startColorAnimation();
-        }
-
-        function startColorAnimation() {
-            var colorArray = ["#FF0000", "#FF1100", "#FF2200", "#FF3300", "#FF4400", "#FF5500", "#FF6600", "#FF7700", "#FF8800", "#FF9900", "#FFaa00", "#FFbb00", "#FFcc00", "#FFdd00", "#FFee00", "#FFff00", "#FFee00", "#FFdd00", "#FFcc00", "#FFbb00", "#FFaa00", "#FF9900", "#FF8800", "#FF7700", "#FF6600", "#FF5500", "#FF4400", "#FF3300", "#FF2200", "#FF1100"];
-            var spans = document.querySelectorAll('.animated-text span');
-            var colorIndex = 0;
-
-            function updateColors() {
-                for (var i = 0; i < spans.length; i++) {
-                    spans[i].style.color = colorArray[(colorIndex + i) % colorArray.length];
-                }
-                colorIndex = (colorIndex + 1) % colorArray.length;
-                requestAnimationFrame(updateColors);
-            }
-
-            updateColors();
-        }
-
-        showCredits();
-    </script>
-
-    <audio src="https://i.imgur.com/4WT9tDo.mp4" autoplay loop></audio>
-    <body>
-        <div class="wrapper">
-            <div class="display">
-                <div id="time"></div>
-            </div>
-            <span></span>
-            <span></span>
-        </div>
-        <script src="./index.js"></script>
-    </body>
+</body>
 </html>
