@@ -8,7 +8,7 @@ module.exports.config = {
   aliases: ['command'],
   description: "Beginner's guide",
   usage: "Help [page] or [command] or [all]",
-  credits: 'Developer',
+  credits: 'Developer', //modified by cyril
 };
 
 module.exports.run = async function ({ api, event, enableCommands, args, Utils, prefix }) {
@@ -19,7 +19,7 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
     const commands = enableCommands[0].commands;
 
     const totalCommands = commands.length;
-    const pages = Math.ceil(totalCommands / 20); // Adjust the number 15 to change commands per page
+    const pages = Math.ceil(totalCommands / 20); 
 
     if (!input || !isNaN(input)) {
       const page = input ? parseInt(input) : 1;
@@ -31,26 +31,28 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
       const start = (page - 1) * 15;
       const end = Math.min(start + 15, totalCommands);
 
-      let helpMessage = `━━𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂━━\n`;
+      let helpMessage = `━━━━COMMANDS━━━━\n`;
       for (let i = start; i < end; i++) {
-        helpMessage += ` ⊂⊃ ➥ ${commands[i]}\n`;
+        helpMessage += `• ${commands[i]}\n`;
       }
 
       helpMessage += `━━━━━━━━━━━━━━━\n`;
-      helpMessage += `━━𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙿𝙰𝙶𝙴 : <${page}/${pages}>━━\n`;
-      helpMessage += `━━CHILLI 𝖠𝖨 𝖢𝖧𝖠𝖳𝖡𝖮𝖳━━\n`;
+      helpMessage += `━━COMMAND PAGE: <${page}/${pages}>━━\n`;
+      helpMessage += `━━━SEMBLANCE BOT━━━\n`;
+      helpMessage += `Developer: Cyril Matt O. Encenso\n`;
       helpMessage += `Total commands: ${totalCommands}\n`;
       helpMessage += `Type "help all" to see all commands.`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
     } else if (input.toLowerCase() === 'all') {
-      let helpMessage = `━━𝙰𝙻𝙻 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂━━\n`;
+      let helpMessage = `━━ALL COMMANDS━━\n`;
       for (let i = 0; i < totalCommands; i++) {
-        helpMessage += ` ⊂⊃ ➥ ${commands[i]}\n`;
+        helpMessage += ` • ${commands[i]}\n`;
       }
 
       helpMessage += `━━━━━━━━━━━━━━━\n`;
-      helpMessage += `━━CHILLI 𝖠𝖨 𝖢𝖧𝖠𝖳𝖡𝖮𝖳━━\n`;
+      helpMessage += `━━SEMBLANCE BOT━━\n`;
+      helpMessage += `Developer: Cyril Matt O. Encenso\n`;
       helpMessage += `Total commands: ${totalCommands}`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
@@ -69,15 +71,15 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
           hasPrefix
         } = command;
 
-        const roleMessage = role !== undefined ? (role === 0 ? '➛ Permission: user' : (role === 1 ? '➛ Permission: admin' : (role === 2 ? '➛ Permission: thread Admin' : (role === 3 ? '➛ Permission: super Admin' : '')))) : '';
-        const aliasesMessage = aliases.length ? `➛ Aliases: ${aliases.join(', ')}\n` : '';
+        const roleMessage = role !== undefined ? (role === 0 ? '➛ Permission: user' : (role === 1 ? '~> Permission: admin' : (role === 2 ? '~> Permission: thread Admin' : (role === 3 ? '~> Permission: super Admin' : '')))) : '';
+        const aliasesMessage = aliases.length ? `~> Aliases: ${aliases.join(', ')}\n` : '';
         const descriptionMessage = description ? `Description: ${description}\n` : '';
-        const usageMessage = usage ? `➛ Usage: ${usage}\n` : '';
-        const creditsMessage = credits ? `➛ Credits: ${credits}\n` : '';
-        const versionMessage = version ? `➛ Version: ${version}\n` : '';
-        const cooldownMessage = cooldown ? `➛ Cooldown: ${cooldown} second(s)\n` : '';
+        const usageMessage = usage ? `~ Usage: ${usage}\n` : '';
+        const creditsMessage = credits ? `~> Credits: ${credits}\n` : '';
+        const versionMessage = version ? `~> Version: ${version}\n` : '';
+        const cooldownMessage = cooldown ? `~> Cooldown: ${cooldown} second(s)\n` : '';
 
-        const message = `「 Command 」\n\n➛ Name: ${name}\n${versionMessage}${roleMessage}\n${aliasesMessage}${descriptionMessage}${usageMessage}${creditsMessage}${cooldownMessage}`;
+        const message = `「 Command 」\n\n~> Name: ${name}\n${versionMessage}${roleMessage}\n${aliasesMessage}${descriptionMessage}${usageMessage}${creditsMessage}${cooldownMessage}`;
         api.sendMessage(message, event.threadID, event.messageID);
       } else {
         api.sendMessage('Command not found.', event.threadID, event.messageID);
