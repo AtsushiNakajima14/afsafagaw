@@ -81,13 +81,12 @@ module.exports.run = async function({ api, event, args, prefix, admin }) {
 
 		const callback = () => {
 				api.sendMessage({
-						body: `➢ Admin and Bot Information
+						body: `• Admin and Bot Information •
 
 • Bot Name: SemBlance V2
 • Bot Admin: Cyril Encenso
 • Bot Admin Link: https://www.facebook.com/cyril.pumdal
 • Bot Prefix: ${prefix}
-• Files Owner: ${FILESOWNER}
 • UPTIME ${uptimeString}
 • Today is: ${cyygwapo} 
 
