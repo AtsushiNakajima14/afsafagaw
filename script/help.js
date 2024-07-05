@@ -33,12 +33,12 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
 
       let helpMessage = `━━━━━━━━━━━━━━━━\n`;
       for (let i = start; i < end; i++) {
-        helpMessage += `• ${commands[i]} - ${description} •\n`;
+        helpMessage += `• ${commands[i]} •\n`;
       }
 
       helpMessage += `━━━━━━━━━━━━━━━━\n`;
-      helpMessage += `━━━COMMAND PAGE: <${page}/${pages}>━━━\n`;
-      helpMessage += `━━━SEMBLANCE AUTOBOT━━━\n`;
+      helpMessage += `━━━━━PAGE: <${page}/${pages}>━━━━\n`;
+      helpMessage += `━━━━SEMBLANCE AUTOBOT━━━━\n`;
       helpMessage += `Developer: Cyril Matt O. Encenso\n`;
       helpMessage += `Total commands: ${totalCommands}\n`;
       helpMessage += `Type "help all" to see all commands.`;
@@ -47,7 +47,7 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
     } else if (input.toLowerCase() === 'all') {
       let helpMessage = `━━━━━━━━━━━━━━━━\n`;
       for (let i = 0; i < totalCommands; i++) {
-        helpMessage += ` • ${commands[i]} - {description} •\n`;
+        helpMessage += ` • ${commands[i]} •\n`;
       }
 
       helpMessage += `━━━━━━━━━━━━━━━━\n`;
