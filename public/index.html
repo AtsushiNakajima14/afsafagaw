@@ -9,41 +9,42 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center">Enter Appstate:</h1>
+    <div class="container my-4">
+        <h1 class="text-center mb-4">Enter Appstate:</h1>
         <form id="json-form" onsubmit="submitForm(event)">
-            <div class="row">
-                <div class="col-md-12">
-                    <textarea id="json-data" class="form-control centered-textarea center-placeholder" placeholder=""></textarea>
-                </div>
+            <div class="form-group">
+                <textarea id="json-data" class="form-control centered-textarea center-placeholder" placeholder="Enter your Appstate here.."></textarea>
             </div>
         </form>
-        <p>Greetings! Begin by entering your Appstate. Scroll down to see other features.</p>
-        <div id="listOfCommands" class="container">
-            <h1>Please choose your commands by tapping on the respective options.</h1>
-            <button class="btn btn-primary" onclick="selectAllCommands()">Select all commands</button>
+        <p class="text-center">Greetings! Begin by entering your Appstate. Scroll down to see other features.</p>
+        <div id="listOfCommands" class="container mb-4">
+            <h2 class="mb-3">Please choose your commands by tapping on the respective options.</h2>
+            <button class="btn custom-btn" onclick="selectAllCommands()">Select all commands</button>
         </div>
-        <div id="listOfCommandsEvent" class="container">
-            <h1>Please choose your event commands by tapping on the respective options.</h1>
-            <button class="btn btn-primary" onclick="selectAllEvents()">Select all events</button>
+        <div id="listOfCommandsEvent" class="container mb-4">
+            <h2 class="mb-3">Please choose your event commands by tapping on the respective options.</h2>
+            <button class="btn custom-btn" onclick="selectAllEvents()">Select all events</button>
         </div>
-        <div id="prefixOfCommands" class="container">
-            <h1>Please provide a prefix (optional) (choose one): . $, #, @, &, !, ?, +, /, *, -, %, ✓, •, ×, }, {, ∆, §, ~, |, π, ÷, =, €. [ Recommended No Prefix ]</h1>
-            <input type="text" id="inputOfPrefix">
+        <div id="prefixOfCommands" class="container mb-4">
+            <h2 class="mb-3">Please provide a prefix (OPTIONAL):</h2>
+            <input type="text" id="inputOfPrefix" class="form-control">
+            <small class="form-text text-muted">Choose one: . $, #, @, &, !, ?, +, /, *, -, %, ✓, •, ×, }, {, ∆, §, ~, |, π, ÷, =, €. [Recommended No Prefix]</small>
         </div>
-        <div id="adminOfCommands" class="container">
-            <h1>Please provide a UID (optional). If you choose not to you will not be the admin of the Bot, entering 'default' will be considered as your input.</h1>
-            <input type="text" id="inputOfAdmin">
+        <div id="adminOfCommands" class="container mb-4">
+            <h2 class="mb-3">Please provide a UID (OPTIONAL):</h2>
+            <input type="text" id="inputOfAdmin" class="form-control">
+            <small class="form-text text-muted">If you choose not to you will not be the admin of the Bot, entering 'default' will be considered as your input.</small>
         </div>
-        <label class="d-flex align-items-center">
-            <input type="checkbox" id="agreeCheckbox" style="margin-right: 10px;"> By checking this box certifies that the owner is not responsible for any locked or suspensions.
-        </label>
+        <div class="form-check mb-4">
+            <input type="checkbox" id="agreeCheckbox" class="form-check-input">
+            <label for="agreeCheckbox" class="form-check-label">By checking this box certifies that the owner is not responsible for any locked or suspensions.</label>
+        </div>
         <div class="text-center">
-            <button class="btn btn-primary" onclick="State()" disabled id="submitButton">Submit</button>
+            <button class="btn custom-btn" onclick="State()" disabled id="submitButton">Submit</button>
         </div>
     </div>
     <div id="result" class="container text-center" style="display: none;"></div>
-    <div class="footer">
+    <div class="footer mt-4">
         <p>Time: <span id="time"></span></p>
         <p>Ping: <span id="ping"></span></p>
     </div>
