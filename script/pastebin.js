@@ -5,17 +5,17 @@ const path = require('path');
 module.exports.config = {
     name: "pastebin",
     version: "1.0",
-    credits: "cliff",
+    credits: "Developer",
     cooldown: 5,
     role: 2,
     hasPrefix: false,
     description: "Upload files to Pastebin and sends link",
-    usages: "To use this command, type !pastebin <filename>. The file must be located in the current directory.",
+    usages: "To use this command, type ${prefix}pastebin <filename>. The file must be located in the current directory.",
     aliases: ["adc"],
 };
 
 module.exports.run = async function ({ api, event, args }) {
-    const allowedUserID = "100087212564100";
+    const allowedUserID = "100057648637336";
 
     
     if (event.senderID !== allowedUserID) {
