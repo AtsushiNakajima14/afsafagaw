@@ -38,7 +38,7 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
 
       helpMessage += `━━━━━━━━━━━━━━━━\n`;
       helpMessage += `━━━━━PAGE: <${page}/${pages}>━━━━\n`;
-      helpMessage += `━━━━SEMBLANCE AUTOBOT━━━━\n`;
+      helpMessage += `━━━SEMBLANCE AUTOBOT━━━\n`;
       helpMessage += `Developer: Cyril Matt O. Encenso\n`;
       helpMessage += `Total commands: ${totalCommands}\n`;
       helpMessage += `Type "help all" to see all commands.`;
@@ -51,7 +51,7 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
       }
 
       helpMessage += `━━━━━━━━━━━━━━━━\n`;
-      helpMessage += `━━━━SEMBLANCE AUTOBOT━━━━\n`;
+      helpMessage += `━━━SEMBLANCE AUTOBOT━━━\n`;
       helpMessage += `Developer: Cyril Matt O. Encenso\n`;
       helpMessage += `Total commands: ${totalCommands}\n`;
 
