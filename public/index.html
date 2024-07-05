@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center">Enter Appstate</h1>
+        <h1 class="text-center">Enter Appstate:</h1>
         <form id="json-form" onsubmit="submitForm(event)">
             <div class="row">
                 <div class="col-md-12">
@@ -28,15 +28,15 @@
             <button class="btn btn-primary" onclick="selectAllEvents()">Select all events</button>
         </div>
         <div id="prefixOfCommands" class="container">
-            <h1>Please provide a prefix (optional) (choose one): . $, #, @, &, !, ?, +, /, *, -, %, ✓, •, ×, }, {, ∆, §, ~, |, π, ÷, =, €</h1>
+            <h1>Please provide a prefix (optional) (choose one): . $, #, @, &, !, ?, +, /, *, -, %, ✓, •, ×, }, {, ∆, §, ~, |, π, ÷, =, €. [ Recommended No Prefix ]</h1>
             <input type="text" id="inputOfPrefix">
         </div>
         <div id="adminOfCommands" class="container">
-            <h1>Please provide a UID (optional). If you choose not to, entering 'default' will be considered as your input.</h1>
+            <h1>Please provide a UID (optional). If you choose not to you will not be the admin of the Bot, entering 'default' will be considered as your input.</h1>
             <input type="text" id="inputOfAdmin">
         </div>
         <label class="d-flex align-items-center">
-            <input type="checkbox" id="agreeCheckbox" style="margin-right: 10px;"> I certify that I have read, understood, and agreed to the Terms and Conditions.
+            <input type="checkbox" id="agreeCheckbox" style="margin-right: 10px;"> By checking this box certifies that the owner is not responsible for any locked or suspensions.
         </label>
         <div class="text-center">
             <button class="btn btn-primary" onclick="State()" disabled id="submitButton">Submit</button>
