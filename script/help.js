@@ -33,7 +33,7 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
 
       let helpMessage = `━━━━━━━━━━━━━━━━\n`;
       for (let i = start; i < end; i++) {
-        helpMessage += `• ${commands[i]}\n`;
+        helpMessage += `• ${commands[i]} - ${description} •\n`;
       }
 
       helpMessage += `━━━━━━━━━━━━━━━━\n`;
@@ -47,7 +47,7 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
     } else if (input.toLowerCase() === 'all') {
       let helpMessage = `━━━━━━━━━━━━━━━━\n`;
       for (let i = 0; i < totalCommands; i++) {
-        helpMessage += ` • ${commands[i]}\n`;
+        helpMessage += ` • ${commands[i]} - {description} •\n`;
       }
 
       helpMessage += `━━━━━━━━━━━━━━━━\n`;
