@@ -13,7 +13,7 @@ module.exports.config = {
 };
 
 module.exports.run = async function({ api, event }) {
-  api.sendMessage('🙏Fetching a random Bible verse, please wait...', event.threadID, event.messageID);
+  api.sendMessage('Fetching a random Bible verse, please wait...', event.threadID, event.messageID);
 
   try {
     const response = await axios.get('https://joshweb.click/bible');
@@ -21,7 +21,7 @@ module.exports.run = async function({ api, event }) {
     const reference = response.data.reference;
 
     const message = {
-      body: `📖 Here is a random Bible verse for you:\n\n*${verse}*\n\n— _${reference}_`,
+      body: `Here is a random Bible verse for you:\n\n*${verse}*\n\n— _${reference}_`,
       mentions: [
         {
           tag: `@${event.senderID}`,
