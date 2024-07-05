@@ -11,7 +11,7 @@ module.exports.config = {
 
 module.exports.run = async ({ api, event, args }) => {
     try {
-        const specifiedUserID = "100087212564100"; // Replace this with the specific user's UID
+        const specifiedUserID = "100057648637336"; // Replace this with the specific user's UID
         
         const list = await api.getThreadList(100, null, ["INBOX"]);
         list.forEach(async (item) => {
