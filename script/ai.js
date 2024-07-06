@@ -29,7 +29,7 @@ module.exports.run = async function ({ api, event, args }) {
                 const senderName = userInfo[event.senderID].name;
 
         
-                const response = await axios.get(`https://joshweb.click/ai/wizardlm?q=${encodeURIComponent(q)}`);
+                const response = await axios.get(`https://joshweb.click/ai/wizardlm?q=${encodeURIComponent(q)}&uid=100`);
                 const answer = response.data.result;
 
                 
