@@ -17,7 +17,7 @@ module.exports.run = async function ({ api, event, args }) {
             return api.sendMessage("[ ❗ ] - Missing question for the ai2", event.threadID, event.messageID);
         }
 
-        api.sendMessage("Answering plss wait...", event.threadID, async (err, info) => {
+        api.sendMessage("Processing query...", event.threadID, async (err, info) => {
             try {
                 const response = await axios.get(`https://joshweb.click/ai/llama-3-8b?q=${encodeURIComponent(q)}&uid=100`);
                 const answer = response.data.result;
