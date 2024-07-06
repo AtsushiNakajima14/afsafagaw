@@ -29,7 +29,7 @@ module.exports.run = async function ({ api, event, args }) {
             }
         });
     } catch (error) {
-        console.error("Error in coder command:", error);
+        console.error("Error in ai command:", error);
         api.sendMessage("An error occurred while processing your request.", event.threadID);
     }
 };
