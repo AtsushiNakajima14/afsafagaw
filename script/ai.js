@@ -3,21 +3,21 @@ const axios = require("axios");
 module.exports.config = {
     name: "ai",
     version: "1.0.0",
-    credits: "chill",
-    description: "Interact with Mixtral AI",
+    credits: "Developer",
+    description: "Get answers from WizardLM",
     hasPrefix: false,
     cooldown: 3,
-    aliases: ["mixtral"]
+    aliases: ["semblance", "sem", "ai"]
 };
 
 module.exports.run = async function ({ api, event, args }) {
     try {
         let q = args.join(" ");
         if (!q) {
-            return api.sendMessage("Please provide a question. For example: ai what is your name?", event.threadID, event.messageID);
+            return api.sendMessage("Please provide a question..", event.threadID, event.messageID);
         }
 
-        api.sendMessage("Mixtral answering, please wait...", event.threadID, async (err, info) => {
+        api.sendMessage("Processing query...", event.threadID, async (err, info) => {
             if (err) {
                 console.error("Error sending initial message:", err);
                 return api.sendMessage("An error occurred while processing your request.", event.threadID);
@@ -29,7 +29,7 @@ module.exports.run = async function ({ api, event, args }) {
                 const senderName = userInfo[event.senderID].name;
 
         
-                const response = await axios.get(`https://joshweb.click/api/mixtral-8b?q=${encodeURIComponent(q)}`);
+                const response = await axios.get(`https://joshweb.click/ai/wizardlm?q=${encodeURIComponent(q)}`);
                 const answer = response.data.result;
 
                 
