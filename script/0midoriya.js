@@ -7,7 +7,7 @@ module.exports.config = {
     description: "Chat with Midoriya (C.AI)",
     hasPrefix: false,
     cooldown: 5,
-    aliases: ["deku, izuki"]
+    aliases: ["deku", "izuki"]
 };
 
 module.exports.run = async function ({ api, event, args }) {
