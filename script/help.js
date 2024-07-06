@@ -41,8 +41,8 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
       helpMessage += `━━━SEMBLANCE AUTOBOT━━━\n`;
       helpMessage += `Total commands: ${totalCommands}\n`;
       helpMessage += `Type "help all" to see all commands.\n`;
-      helpMessage += `Developer: Cyril Matt O. Encenso\n`;
-      helpMessage += `https://sem-blance-messenger-bot-v2.replit.app/`;
+      helpMessage += `SemBlance developer: Cyril Matt O. Encenso\n`;
+      helpMessage += `https://semblance-ai.vercel.app/`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
     } else if (input.toLowerCase() === 'all') {
@@ -54,8 +54,8 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
       helpMessage += `━━━━━━━━━━━━━━━━\n`;
       helpMessage += `━━━SEMBLANCE AUTOBOT━━━\n`;
       helpMessage += `Total commands: ${totalCommands}\n`;
-      helpMessage += `Developer: Cyril Matt O. Encenso\n`;
-      helpMessage += `https://sem-blance-messenger-bot-v2.replit.app/`;
+      helpMessage += `SemBlance developer: Cyril Matt O. Encenso\n`;
+      helpMessage += `https://semblance-ai.vercel.app/`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
     } else {
