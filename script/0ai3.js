@@ -3,7 +3,7 @@ const axios = require("axios");
 module.exports.config = {
     name: "ai3",
     version: "1.0.0",
-    credits: "CyDev",
+    credits: "Developer",
     description: "Get answers from Zephyr",
     hasPrefix: false,
     cooldown: 5,
