@@ -3,8 +3,8 @@ const axios = require("axios");
 module.exports.config = {
     name: "ai4",
     version: "1.0.0",
-    credits: "CyyDev",
-    description: "Interact with Coder AI",
+    credits: "Developer",
+    description: "Get answers from Starling",
     hasPrefix: false,
     cooldown: 5,
     aliases: ['starling', 'star']
