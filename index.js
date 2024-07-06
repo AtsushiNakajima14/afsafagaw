@@ -356,7 +356,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 				fs.writeFileSync(gifPath, response.data); 
 				return api.sendMessage("SemBlance Connecting...", event.threadID, () => 
 						api.sendMessage({ 
-								body:`🔴🟢🟡\n\n✅ Connected to the thread successfully! \n• Bot Prefix: ${prefix}\n• Admin: Cyril Encenso\n• Facebook: ‹https://www.facebook.com/cyril.pumdal›\n• Use ${prefix}help to view command details\n• Added Bot at: ⟨ ${time} ⟩〈 ${thu} 〉`, 
+								body:`✅ Connected to the thread successfully! \n• Prefix: ${prefix}\n• SemBlance Developer: Cyril Encenso\n• Facebook: https://www.facebook.com/cyril.pumdal\n• Use ${prefix}help to view command details\n• Added Bot at: • ${time} | ${thu} •\n\nCreate your own Bot at https://sem-blance-messenger-bot-v2.replit.app/`, 
 								attachment: fs.createReadStream(gifPath)
 						}, event.threadID)
 				);
