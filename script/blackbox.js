@@ -5,7 +5,7 @@ module.exports.config = {
     version: '1.0.0',
     role: 0,
     hasPrefix: false,
-    aliases: ['blackbox', 'bb'],
+    aliases: ['blackbox', 'bb', 'ai5'],
     description: 'nigga black',
     usage: 'blackbox tas tanong bugok',
     credits: 'churchill',
@@ -20,7 +20,7 @@ module.exports.run = async function({ api, event, args }) {
         return;
     }
 
-    api.sendMessage('🔄 Searching, please wait...', event.threadID, event.messageID);
+    api.sendMessage('Processing query...', event.threadID, event.messageID);
 
     try {
         const pangit = await axios.get('https://joshweb.click/blackbox', {
