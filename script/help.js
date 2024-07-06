@@ -5,7 +5,7 @@ module.exports.config = {
   version: '1.0.0',
   role: 0,
   hasPrefix: true,
-  aliases: ['command'],
+  aliases: ['command', 'cmd'],
   description: "Beginner's guide",
   usage: "Help [page] or [command] or [all]",
   credits: 'Developer', //modified by cyril
@@ -39,9 +39,10 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
       helpMessage += `━━━━━━━━━━━━━━━━\n`;
       helpMessage += `━━━━━PAGE: <${page}/${pages}>━━━━\n`;
       helpMessage += `━━━SEMBLANCE AUTOBOT━━━\n`;
-      helpMessage += `Developer: Cyril Matt O. Encenso\n`;
       helpMessage += `Total commands: ${totalCommands}\n`;
-      helpMessage += `Type "help all" to see all commands.`;
+      helpMessage += `Type "help all" to see all commands.\n`;
+      helpMessage += `Developer: Cyril Matt O. Encenso\n`;
+      helpMessage += `https://sem-blance-messenger-bot-v2.replit.app/`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
     } else if (input.toLowerCase() === 'all') {
@@ -52,8 +53,9 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
 
       helpMessage += `━━━━━━━━━━━━━━━━\n`;
       helpMessage += `━━━SEMBLANCE AUTOBOT━━━\n`;
-      helpMessage += `Developer: Cyril Matt O. Encenso\n`;
       helpMessage += `Total commands: ${totalCommands}\n`;
+      helpMessage += `Developer: Cyril Matt O. Encenso\n`;
+      helpMessage += `https://sem-blance-messenger-bot-v2.replit.app/`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
     } else {
