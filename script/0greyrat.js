@@ -7,7 +7,7 @@ module.exports.config = {
     description: "Chat with Greyrat (C.AI)",
     hasPrefix: false,
     cooldown: 5,
-    aliases: ["rudeus"]
+    aliases: ["rudeus", "grey", "rat"]
 };
 
 module.exports.run = async function ({ api, event, args }) {
@@ -29,7 +29,7 @@ module.exports.run = async function ({ api, event, args }) {
             }
         });
     } catch (error) {
-        console.error("Error in lma command:", error);
+        console.error("Error in ai command:", error);
         api.sendMessage("An error occurred while processing your request.", event.threadID);
     }
 };
