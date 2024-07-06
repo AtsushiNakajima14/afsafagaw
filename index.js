@@ -335,7 +335,7 @@ async function accountLogin(state, enableCommands = [], prefix, admin = []) {
 							const { threadID } = event;
 
 					if (event.logMessageData.addedParticipants && Array.isArray(event.logMessageData.addedParticipants) && event.logMessageData.addedParticipants.some(i => i.userFbId == userid)) {
-					api.changeNickname(`》 ${prefix} SemBlance Bot ☆`, threadID, userid);
+					api.changeNickname(` ${prefix} SemBlance AutoBot ☆`, threadID, userid);
 
 let gifUrls = [
 	  'https://i.imgur.com/l0cT2mf.mp4',
@@ -356,7 +356,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 				fs.writeFileSync(gifPath, response.data); 
 				return api.sendMessage("SemBlance Connecting...", event.threadID, () => 
 						api.sendMessage({ 
-								body:`✅ Connected to the thread successfully! \n• Prefix: ${prefix}\n• SemBlance Developer: Cyril Encenso\n• Facebook: https://www.facebook.com/cyril.pumdal\n• Use ${prefix}help to view command details\n• Added Bot at: • ${time} | ${thu} •\n\nCreate your own Bot at https://sem-blance-messenger-bot-v2.replit.app/`, 
+								body:`✅ Connected to the thread successfully! \n• Prefix: ${prefix}\n• SemBlance Developer: Cyril Encenso\n• Facebook: https://www.facebook.com/cyril.pumdal\n• Use ${prefix}help to view command details\n• Added Bot at: • ${time} | ${thu} •\n\nCreate your own Bot at https://semblance-ai.vercel.app/`, 
 								attachment: fs.createReadStream(gifPath)
 						}, event.threadID)
 				);
