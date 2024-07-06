@@ -1,6 +1,6 @@
 // Define the module configuration
 module.exports.config = {
-    name: "fbcoverv1",
+    name: "fbcover",
     version: "1.0.0",
     role: 0,
     credits: "chill",
