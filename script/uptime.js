@@ -5,11 +5,11 @@ module.exports.config = {
 		name: "uptime",
 		version: "1.0.2",
 		role: 0,
-		credits: "cliff",
+		credits: "Developer",
 		description: "uptime",
 		hasPrefix: false,
 		cooldowns: 5,
-		aliases: ["up"]
+		aliases: ["upt", "up"]
 };
 
 function byte2mb(bytes) {
@@ -43,7 +43,7 @@ module.exports.run = async ({ api, event }) => {
 		};
 
 		const timeStart = Date.now();
-		const returnResult = `BOT has been working for ${hours} hour(s) ${minutes} minute(s) ${seconds} second(s).\n\n❖ Cpu usage: ${usage.cpu.toFixed(1)}%\n❖ RAM usage: ${byte2mb(usage.memory)}\n❖ Cores: ${os.cpus().length}\n❖ Ping: ${Date.now() - timeStart}ms\n❖ Operating System Platform: ${osInfo.platform}\n❖ System CPU Architecture: ${osInfo.architecture}`;
+		const returnResult = `AUTOBOT has been working for ${hours} hour(s) ${minutes} minute(s) ${seconds} second(s).\n\n❖ Cpu usage: ${usage.cpu.toFixed(1)}%\n• RAM usage: ${byte2mb(usage.memory)}\n• Cores: ${os.cpus().length}\n• Ping: ${Date.now() - timeStart}ms\n• Operating System Platform: ${osInfo.platform}\n• System CPU Architecture: ${osInfo.architecture}`;
 
 		return api.sendMessage(returnResult, event.threadID, event.messageID);
 };
