@@ -40,7 +40,7 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
       helpMessage += `━━━━SEMBLANCE AUTOBOT━━━━\n`;
       helpMessage += ━━━━━PAGE: <${page}/${pages}>━━━━━\n``;
       helpMessage += `Total commands: ${totalCommands}\n`;
-      helpMessage += `Type "${prefix}help all" to see all commands.\n`;
+      helpMessage += `Type "help all" to see all commands.\n`;
       helpMessage += `SemBlance developer: Cyril Matt O. Encenso\n\n`;
       helpMessage += `Create your own Bot https://tinyurl.com/2585cfad`;
 
