@@ -4,10 +4,10 @@ module.exports.config = {
     name: "ai",
     version: "1.0.0",
     credits: "Developer",
-    description: "Get answers from WizardLM",
+    description: "Get answers from Qwen",
     hasPrefix: false,
     cooldown: 3,
-    aliases: ["semblance", "sem", "ai"]
+    aliases: ["semblance", "sem", "qwen"]
 };
 
 module.exports.run = async function ({ api, event, args }) {
@@ -29,7 +29,7 @@ module.exports.run = async function ({ api, event, args }) {
                 const senderName = userInfo[event.senderID].name;
 
         
-                const response = await axios.get(`https://joshweb.click/ai/wizardlm?q=${encodeURIComponent(q)}&uid=100`);
+                const response = await axios.get(`https://joshweb.click/ai/qwen1.5-14b?q=${encodeURIComponent(q)}&uid=100`);
                 const answer = response.data.result;
 
                 
