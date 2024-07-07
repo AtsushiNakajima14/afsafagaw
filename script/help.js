@@ -33,29 +33,29 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
 
       let helpMessage = `━━━━━━━━━━━━━━━━\n`;
       for (let i = start; i < end; i++) {
-        helpMessage += `• ${commands[i]} •\n`;
+        helpMessage += `• ${commands[i]}\n`;
       }
 
       helpMessage += `━━━━━━━━━━━━━━━━\n`;
-      helpMessage += `━━━━━PAGE: <${page}/${pages}>━━━━\n`;
-      helpMessage += `━━━SEMBLANCE AUTOBOT━━━\n`;
+      helpMessage += `━━━━SEMBLANCE AUTOBOT━━━━\n`;
+      helpMessage += ━━━━━PAGE: <${page}/${pages}>━━━━━\n``;
       helpMessage += `Total commands: ${totalCommands}\n`;
-      helpMessage += `Type "help all" to see all commands.\n`;
-      helpMessage += `SemBlance developer: Cyril Matt O. Encenso\n`;
-      helpMessage += `https://semblance-ai.vercel.app/`;
+      helpMessage += `Type "${prefix}help all" to see all commands.\n`;
+      helpMessage += `SemBlance developer: Cyril Matt O. Encenso\n\n`;
+      helpMessage += `Create your own Bot https://tinyurl.com/2585cfad`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
     } else if (input.toLowerCase() === 'all') {
       let helpMessage = `━━━━━━━━━━━━━━━━\n`;
       for (let i = 0; i < totalCommands; i++) {
-        helpMessage += ` • ${commands[i]} •\n`;
+        helpMessage += ` • ${commands[i]}\n`;
       }
 
       helpMessage += `━━━━━━━━━━━━━━━━\n`;
-      helpMessage += `━━━SEMBLANCE AUTOBOT━━━\n`;
+      helpMessage += `━━━━SEMBLANCE AUTOBOT━━━━\n`;
       helpMessage += `Total commands: ${totalCommands}\n`;
-      helpMessage += `SemBlance developer: Cyril Matt O. Encenso\n`;
-      helpMessage += `https://semblance-ai.vercel.app/`;
+      helpMessage += `SemBlance developer: Cyril Matt O. Encenso\n\n`;
+      helpMessage += `Create your own Bot https://tinyurl.com/2585cfad`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
     } else {
@@ -94,7 +94,7 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
 
 module.exports.handleEvent = async function ({ api, event, prefix }) {
   const { threadID, messageID, body } = event;
-  const message = prefix ? 'This is my prefix: ' + prefix : "Sorry I don't have prefix";
+  const message = prefix ? '☆ this is my prefix: ' + prefix : "Sorry I don't have prefix";
   if (body?.toLowerCase().startsWith('prefix')) {
     api.sendMessage(message, threadID, messageID);
   }
