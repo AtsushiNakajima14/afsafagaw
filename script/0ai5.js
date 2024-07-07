@@ -1,13 +1,13 @@
 const axios = require("axios");
 
 module.exports.config = {
-    name: "phi",
+    name: "ai5",
     version: "1.0.0",
     credits: "CyDev",
     description: "Get responses on Microsoft Phi!",
     hasPrefix: false,
     cooldown: 5,
-    aliases: ["p", "microsoft"]
+    aliases: ["p", "microsoft", "phi"]
 };
 
 module.exports.run = async function ({ api, event, args }) {
