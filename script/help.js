@@ -37,11 +37,11 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
       }
 
       helpMessage += `━━━━━━━━━━━━━━━━\n`;
-      helpMessage += `━━━━SEMBLANCE AUTOBOT━━━━\n`;
-      helpMessage += ━━━━━PAGE: <${page}/${pages}>━━━━━\n``;
+      helpMessage += `━━━━━PAGE: <${page}/${pages}>━━━━\n`;
+      helpMessage += `━━━SEMBLANCE AUTOBOT━━━\n`;
       helpMessage += `Total commands: ${totalCommands}\n`;
       helpMessage += `Type "help all" to see all commands.\n`;
-      helpMessage += `SemBlance developer: Cyril Matt O. Encenso\n\n`;
+      helpMessage += `SemBlance developer: Cyril Matt O. Encenso\n`;
       helpMessage += `Create your own Bot https://tinyurl.com/2585cfad`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
@@ -52,9 +52,9 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
       }
 
       helpMessage += `━━━━━━━━━━━━━━━━\n`;
-      helpMessage += `━━━━SEMBLANCE AUTOBOT━━━━\n`;
+      helpMessage += `━━━SEMBLANCE AUTOBOT━━━\n`;
       helpMessage += `Total commands: ${totalCommands}\n`;
-      helpMessage += `SemBlance developer: Cyril Matt O. Encenso\n\n`;
+      helpMessage += `SemBlance developer: Cyril Matt O. Encenso\n`;
       helpMessage += `Create your own Bot https://tinyurl.com/2585cfad`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
