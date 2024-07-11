@@ -1,13 +1,13 @@
 const axios = require("axios");
 
 module.exports.config = {
-    name: "gpt4o",
+    name: "gemini",
     version: "1.0.0",
     credits: "Developer",
-    description: "Get answers from GPT4o",
+    description: "Get answers from Gemini",
     hasPrefix: false,
     cooldown: 5,
-    aliases: ['ai6', 'gaypt', '4o']
+    aliases: ['bard']
 };
 
 module.exports.run = async function ({ api, event, args }) {
@@ -19,7 +19,7 @@ module.exports.run = async function ({ api, event, args }) {
 
         api.sendMessage("Processing query...", event.threadID, async (err, info) => {
             try {
-                const response = await axios.get(`https://joshweb.click/api/gpt-4o?q=${encodeURIComponent(q)}&uid=100`);
+                const response = await axios.get(`https://joshweb.click/new/gemini?prompt=${encodeURIComponent(q)}`);
                 const answer = response.data.result;
 
                 api.sendMessage(answer, event.threadID);
