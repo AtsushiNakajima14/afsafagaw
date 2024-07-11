@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container my-4">
+    <div class="container my-5 fade-in">
         <h1 class="text-center mb-4">Enter Appstate:</h1>
         <form id="json-form" onsubmit="submitForm(event)">
             <div class="form-group">
@@ -17,25 +17,25 @@
             </div>
         </form>
         <p class="text-center">Greetings! Begin by entering your Appstate. Scroll down to see other features.</p>
-        <div id="listOfCommands" class="container mb-4">
+        <div id="listOfCommands" class="container mb-5 fade-in">
             <h2 class="mb-3">Please choose your commands by tapping on the respective options.</h2>
             <button class="btn custom-btn" onclick="selectAllCommands()">Select all commands</button>
         </div>
-        <div id="listOfCommandsEvent" class="container mb-4">
+        <div id="listOfCommandsEvent" class="container mb-5 fade-in">
             <h2 class="mb-3">Please choose your event commands by tapping on the respective options.</h2>
             <button class="btn custom-btn" onclick="selectAllEvents()">Select all events</button>
         </div>
-        <div id="prefixOfCommands" class="container mb-4">
+        <div id="prefixOfCommands" class="container mb-5 fade-in">
             <h2 class="mb-3">Please provide a prefix (OPTIONAL):</h2>
             <input type="text" id="inputOfPrefix" class="form-control">
             <small class="form-text text-muted">Choose one: . $, #, @, &, !, ?, +, /, *, -, %, ✓, •, ×, }, {, ∆, §, ~, |, π, ÷, =, €. [Recommended No Prefix]</small>
         </div>
-        <div id="adminOfCommands" class="container mb-4">
+        <div id="adminOfCommands" class="container mb-5 fade-in">
             <h2 class="mb-3">Please provide a UID (OPTIONAL):</h2>
             <input type="text" id="inputOfAdmin" class="form-control">
             <small class="form-text text-muted">If you choose not to you will not be the admin of the Bot, entering 'default' will be considered as your input.</small>
         </div>
-        <div class="form-check mb-4">
+        <div class="form-check mb-5 fade-in">
             <input type="checkbox" id="agreeCheckbox" class="form-check-input">
             <label for="agreeCheckbox" class="form-check-label">By checking this box certifies that the owner is not responsible for any locked or suspensions.</label>
         </div>
@@ -43,7 +43,7 @@
             <button class="btn custom-btn" onclick="State()" disabled id="submitButton">Submit</button>
         </div>
     </div>
-    <div id="result" class="container text-center" style="display: none;"></div>
+    <div id="result" class="container text-center fade-in" style="display: none;"></div>
     <div class="footer mt-4">
         <p>Time: <span id="time"></span></p>
         <p>Ping: <span id="ping"></span></p>
