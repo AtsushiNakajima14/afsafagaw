@@ -112,7 +112,7 @@ async function commandList() {
 
 function createCommand(element, order, command, type, aliases) {
     const container = document.createElement('div');
-    container.classList.add('form-check', 'form-switch');
+    container.classList.add('form-check', 'form-switch', 'fade-in');
     container.onclick = toggleCheckbox;
     const checkbox = document.createElement('input');
     checkbox.classList.add('form-check-input', type === 'handleEvent' ? 'handleEvent' : 'commands');
@@ -125,14 +125,6 @@ function createCommand(element, order, command, type, aliases) {
     label.textContent = `${order}. ${command}`;
     container.appendChild(checkbox);
     container.appendChild(label);
-    /*
-    if (aliases.length > 0 && type !== 'handleEvent') {
-        const aliasText = document.createElement('span');
-        aliasText.classList.add('aliases');
-        aliasText.textContent = ` (${aliases.join(', ')})`;
-        label.appendChild(aliasText);
-    }
-    */
     return container;
 }
 
