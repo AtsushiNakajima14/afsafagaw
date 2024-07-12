@@ -21,7 +21,7 @@ module.exports.run = async function ({ api, event, args, admin }) {
 	async function sendMessage(thread) {
 		try {
 			await api.sendMessage(
-`=================\n『 NOTIFICATION FROM ADMIN 』\n\=================\n𝗠𝗲𝘀𝘀𝗮𝗴𝗲:「${custom}」\n FOLLOW MY DEV: https://www.facebook.com/profile.php?id=100049848762308`,
+`=================\n『 NOTIFICATION FROM ADMIN 』\n\=================\n𝗠𝗲𝘀𝘀𝗮𝗴𝗲:「${custom}\n\nCreate your own Bot at https://semblance-messenger-bot-v2.onrender.com/`,
 				thread.threadID
 			);
 			sentCount++;
