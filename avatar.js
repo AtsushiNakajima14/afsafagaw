@@ -7,6 +7,7 @@ module.exports = {
     version: "1.0.1",
     hasPermssion: 0,
     credits: "Deku",
+    hasPrefix: true,
     description: "Generate Anime Profile",
     commandCategory: "img",
     usages: "signature | bgtext | char id | color",
