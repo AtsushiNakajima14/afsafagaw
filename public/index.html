@@ -6,9 +6,153 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #2c2c2c;
+            color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: #3a3a3a;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+            max-width: 800px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        p, label, small {
+            color: #d1d1d1;
+        }
+
+        .centered-textarea {
+            color: #d1d1d1;
+            display: flex;
+            width: 100%;
+            min-height: 150px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            resize: none;
+            background-color: #4a4a4a;
+        }
+
+        .custom-btn {
+            background-color: #17a2b8;
+            border: 1px solid #17a2b8;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .custom-btn:hover {
+            background-color: #138496;
+            border: 1px solid #138496;
+            transform: scale(1.05);
+        }
+
+        .form-check-input {
+            margin-right: 10px;
+        }
+
+        .form-check-label {
+            font-weight: 500;
+        }
+
+        .footer {
+            background-color: #3a3a3a;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+            color: #d1d1d1;
+            margin-top: 50px;
+            border-top: 1px solid #4a4a4a;
+        }
+
+        .footer p {
+            margin: 0;
+            display: inline-block;
+            margin-right: 30px;
+        }
+
+        #result {
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            background-color: #4a4a4a;
+        }
+
+        #inputOfPrefix, #inputOfAdmin {
+            padding: 13px;
+            width: 100%;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            background-color: #4a4a4a;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: #d1d1d1;
+        }
+
+        .center-placeholder::placeholder {
+            text-align: center;
+            color: #d1d1d1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1, h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .credits-header {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .credits-header a {
+            color: #17a2b8;
+            text-decoration: none;
+        }
+
+        .credits-header a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
+    <div class="credits-header">
+        <p>Tutorial on how to get Account Appstate: <a href="https://tinyurl.com/yzkm8kfd" target="_blank">https://tinyurl.com/yzkm8kfd</a></p>
+    </div>
     <div class="container my-5 fade-in">
         <h1 class="text-center mb-4">Enter Appstate:</h1>
         <form id="json-form" onsubmit="submitForm(event)">
@@ -48,7 +192,242 @@
         <p>Time: <span id="time"></span></p>
         <p>Ping: <span id="ping"></span></p>
     </div>
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('agreeCheckbox').addEventListener('change', function() {
+            document.getElementById('submitButton').disabled = !this.checked;
+        });
+
+        let Commands = [{
+            'commands': []
+        }, {
+            'handleEvent': []
+        }];
+
+        function measurePing() {
+            var xhr = new XMLHttpRequest();
+            var startTime, endTime;
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    endTime = Date.now();
+                    var pingTime = endTime - startTime;
+                    document.getElementById("ping").textContent = pingTime + " ms";
+                }
+            };
+            xhr.open("GET", location.href + "?t=" + new Date().getTime());
+            startTime = Date.now();
+            xhr.send();
+        }
+        setInterval(measurePing, 1000);
+
+        function updateTime() {
+            const now = new Date();
+            const options = {
+                timeZone: 'Asia/Manila',
+                hour12: true,
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric'
+            };
+            const formattedTime = now.toLocaleString('en-US', options);
+            document.getElementById('time').textContent = formattedTime;
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        async function State() {
+            const jsonInput = document.getElementById('json-data');
+            const button = document.getElementById('submitButton');
+            if (!Commands[0].commands.length) {
+                return showResult('Please provide at least one valid command for execution.');
+            }
+            try {
+                button.style.display = 'none';
+                const State = JSON.parse(jsonInput.value);
+                if (State && typeof State === 'object') {
+                    const response = await fetch('/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            state: State,
+                            commands: Commands,
+                            prefix: document.getElementById('inputOfPrefix').value,
+                            admin: document.getElementById('inputOfAdmin').value,
+                        }),
+                    });
+                    const data = await response.json();
+                    if (data.success) {
+                        jsonInput.value = '';
+                        showResult(data.message);
+                    } else {
+                        jsonInput.value = '';
+                        showResult(data.message);
+                    }
+                } else {
+                    jsonInput.value = '';
+                    showResult('Invalid JSON data. Please check your input.');
+                }
+            } catch (parseError) {
+                jsonInput.value = '';
+                console.error('Error parsing JSON:', parseError);
+                showResult('Error parsing JSON. Please check your input.');
+            } finally {
+                setTimeout(() => {
+                    button.style.display = 'block';
+                }, 4000);
+            }
+        }
+
+        function showResult(message) {
+            const resultContainer = document.getElementById('result');
+            resultContainer.innerHTML = `<h5>${message}</h5>`;
+            resultContainer.style.display = 'block';
+        }
+
+        async function commandList() {
+            try {
+                const [listOfCommands, listOfCommandsEvent] = [document.getElementById('listOfCommands'), document.getElementById('listOfCommandsEvent')];
+                const response = await fetch('/commands');
+                const {
+                    commands,
+                    handleEvent,
+                    aliases
+                } = await response.json();
+                [commands, handleEvent].forEach((command, i) => {
+                    command.forEach((command, index) => {
+                        const container = createCommand(i === 0 ? listOfCommands : listOfCommandsEvent, index + 1, command, i === 0 ? 'commands' : 'handleEvent', aliases[index] || []);
+                        i === 0 ? listOfCommands.appendChild(container) : listOfCommandsEvent.appendChild(container);
+                    });
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        function createCommand(element, order, command, type, aliases) {
+            const container = document.createElement('div');
+            container.classList.add('form-check', 'form-switch', 'fade-in');
+            container.onclick = toggleCheckbox;
+            const checkbox = document.createElement('input');
+            checkbox.classList.add('form-check-input', type === 'handleEvent' ? 'handleEvent' : 'commands');
+            checkbox.type = 'checkbox';
+            checkbox.role = 'switch';
+            checkbox.id = `flexSwitchCheck_${order}`;
+            const label = document.createElement('label');
+            label.classList.add('form-check-label', type === 'handleEvent' ? 'handleEvent' : 'commands');
+            label.for = `flexSwitchCheck_${order}`;
+            label.textContent = `${order}. ${command}`;
+            container.appendChild(checkbox);
+            container.appendChild(label);
+            return container;
+        }
+
+        function toggleCheckbox() {
+            const box = [{
+                input: '.form-check-input.commands',
+                label: '.form-check-label.commands',
+                array: Commands[0].commands
+            }, {
+                input: '.form-check-input.handleEvent',
+                label: '.form-check-label.handleEvent',
+                array: Commands[1].handleEvent
+            }];
+            box.forEach(({
+                input,
+                label,
+                array
+            }) => {
+                const checkbox = this.querySelector(input);
+                const labelText = this.querySelector(label);
+                if (checkbox) {
+                    checkbox.checked = !checkbox.checked;
+                    if (checkbox.checked) {
+                        labelText.classList.add('disable');
+                        const command = labelText.textContent.replace(/^\d+\.\s/, '').split(" ")[0];
+                        array.push(command);
+                    } else {
+                        labelText.classList.remove('disable');
+                        const command = labelText.textContent.replace(/^\d+\.\s/, '').split(" ")[0];
+                        const removeCommand = array.indexOf(command);
+                        if (removeCommand !== -1) {
+                            array.splice(removeCommand, 1);
+                        }
+                    }
+                }
+            });
+        }
+
+        function selectAllCommands() {
+            const box = [{
+                input: '.form-check-input.commands',
+                array: Commands[0].commands
+            }];
+            box.forEach(({
+                input,
+                array
+            }) => {
+                const checkboxes = document.querySelectorAll(input);
+                const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+                checkboxes.forEach((checkbox) => {
+                    if (allChecked) {
+                        checkbox.checked = false;
+                        const labelText = checkbox.nextElementSibling;
+                        labelText.classList.remove('disable');
+                        const command = labelText.textContent.replace(/^\d+\.\s/, '').split(" ")[0];
+                        const removeCommand = array.indexOf(command);
+                        if (removeCommand !== -1) {
+                            array.splice(removeCommand, 1);
+                        }
+                    } else {
+                        checkbox.checked = true;
+                        const labelText = checkbox.nextElementSibling;
+                        labelText.classList.add('disable');
+                        const command = labelText.textContent.replace(/^\d+\.\s/, '').split(" ")[0];
+                        if (!array.includes(command)) {
+                            array.push(command);
+                        }
+                    }
+                });
+            });
+        }
+
+        function selectAllEvents() {
+            const box = [{
+                input: '.form-check-input.handleEvent',
+                array: Commands[1].handleEvent
+            }];
+            box.forEach(({
+                input,
+                array
+            }) => {
+                const checkboxes = document.querySelectorAll(input);
+                const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+                checkboxes.forEach((checkbox) => {
+                    if (allChecked) {
+                        checkbox.checked = false;
+                        const labelText = checkbox.nextElementSibling;
+                        labelText.classList.remove('disable');
+                        const event = labelText.textContent.replace(/^\d+\.\s/, '').split(" ")[0];
+                        const removeEvent = array.indexOf(event);
+                        if (removeEvent !== -1) {
+                            array.splice(removeEvent, 1);
+                        }
+                    } else {
+                        checkbox.checked = true;
+                        const labelText = checkbox.nextElementSibling;
+                        labelText.classList.add('disable');
+                        const event = labelText.textContent.replace(/^\d+\.\s/, '').split(" ")[0];
+                        if (!array.includes(event)) {
+                            array.push(event);
+                        }
+                    }
+                });
+            });
+        }
+
+        commandList();
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
