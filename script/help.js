@@ -8,7 +8,7 @@ module.exports.config = {
   aliases: ['command', 'cmd'],
   description: "Beginner's guide",
   usage: "Help [page] or [command] or [all]",
-  credits: 'Developer', //modified by cyril
+  credits: 'Developer',
 };
 
 module.exports.run = async function ({ api, event, enableCommands, args, Utils, prefix }) {
@@ -31,31 +31,28 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
       const start = (page - 1) * 15;
       const end = Math.min(start + 15, totalCommands);
 
-      let helpMessage = `━━━━━━━━━━━━━━━━\n`;
+      let helpMessage = `𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧\n`;
       for (let i = start; i < end; i++) {
-        helpMessage += `• ${commands[i]}\n`;
+        helpMessage += `➤ ${commands[i]}\n`;
       }
 
-      helpMessage += `━━━━━━━━━━━━━━━━\n`;
-      helpMessage += `━━━━━PAGE: <${page}/${pages}>━━━━\n`;
-      helpMessage += `━━━SEMBLANCE AUTOBOT━━━\n`;
-      helpMessage += `Total commands: ${totalCommands}\n`;
-      helpMessage += `Type "help all" to see all commands.\n`;
-      helpMessage += `SemBlance developer: Cyril Matt O. Encenso\n`;
-      helpMessage += `Create your own Bot https://tinyurl.com/2585cfad`;
+      helpMessage += `━━━━━𝗣𝗔𝗚𝗘: <${page}/${pages}>━━━━\n`;
+      helpMessage += `━━━𝗦𝗘𝗠𝗕𝗟𝗔𝗡𝗖𝗘 𝗔𝗨𝗧𝗢𝗕𝗢𝗧━━━\n`;
+      helpMessage += `Type "help all" to see all commands.\n\n`;
+      helpMessage += `𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥: https://www.facebook.com/cyril.pumdal\n\n`;
+      helpMessage += `Create your own Bot https://tinyurl.com/2585cfad\n\nTutorial on how to get your account Appstate: https://tinyurl.com/yeysv3x3`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
     } else if (input.toLowerCase() === 'all') {
       let helpMessage = `━━━━━━━━━━━━━━━━\n`;
       for (let i = 0; i < totalCommands; i++) {
-        helpMessage += ` • ${commands[i]}\n`;
+        helpMessage += `➤ ${commands[i]}\n`;
       }
 
-      helpMessage += `━━━━━━━━━━━━━━━━\n`;
-      helpMessage += `━━━SEMBLANCE AUTOBOT━━━\n`;
-      helpMessage += `Total commands: ${totalCommands}\n`;
-      helpMessage += `SemBlance developer: Cyril Matt O. Encenso\n`;
-      helpMessage += `Create your own Bot https://tinyurl.com/2585cfad`;
+      helpMessage += `━━━𝗦𝗘𝗠𝗕𝗟𝗔𝗡𝗖𝗘 𝗔𝗨𝗧𝗢𝗕𝗢𝗧━━━\n`;
+      helpMessage += `𝗧𝗢𝗧𝗔𝗟 𝗖𝗠𝗗𝗦: ${totalCommands}\n`;
+      helpMessage += `𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥: https://www.facebook.com/cyril.pumdal\n\n`;
+      helpMessage += `Create your own Bot https://tinyurl.com/2585cfad\n\nTutorial on how to get your account Appstate: https://tinyurl.com/yeysv3x3`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
     } else {
@@ -94,7 +91,7 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
 
 module.exports.handleEvent = async function ({ api, event, prefix }) {
   const { threadID, messageID, body } = event;
-  const message = prefix ? '☆ this is my prefix: ' + prefix : "Sorry I don't have prefix";
+  const message = prefix ? 'This is my prefix: ' + prefix : "My apologies but I don't have a prefix";
   if (body?.toLowerCase().startsWith('prefix')) {
     api.sendMessage(message, threadID, messageID);
   }
