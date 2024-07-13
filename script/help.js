@@ -38,9 +38,9 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
 
       helpMessage += `━━━━━𝗣𝗔𝗚𝗘: <${page}/${pages}>━━━━\n`;
       helpMessage += `━━━𝗦𝗘𝗠𝗕𝗟𝗔𝗡𝗖𝗘 𝗔𝗨𝗧𝗢𝗕𝗢𝗧━━━\n`;
-      helpMessage += `Type "help all" to see all commands.\n\n`;
+      helpMessage += `Type "help all" to see all commands.\n`;
       helpMessage += `𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥: https://www.facebook.com/cyril.pumdal\n\n`;
-      helpMessage += `Create your own Bot https://tinyurl.com/2585cfad\n\nTutorial on how to get your account Appstate: https://tinyurl.com/yeysv3x3`;
+      helpMessage += `Create your own Messenger Bot at https://tinyurl.com/2585cfad\nTutorial on how to get your account Appstate: https://tinyurl.com/yeysv3x3`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
     } else if (input.toLowerCase() === 'all') {
@@ -52,7 +52,7 @@ module.exports.run = async function ({ api, event, enableCommands, args, Utils, 
       helpMessage += `━━━𝗦𝗘𝗠𝗕𝗟𝗔𝗡𝗖𝗘 𝗔𝗨𝗧𝗢𝗕𝗢𝗧━━━\n`;
       helpMessage += `𝗧𝗢𝗧𝗔𝗟 𝗖𝗠𝗗𝗦: ${totalCommands}\n`;
       helpMessage += `𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥: https://www.facebook.com/cyril.pumdal\n\n`;
-      helpMessage += `Create your own Bot https://tinyurl.com/2585cfad\n\nTutorial on how to get your account Appstate: https://tinyurl.com/yeysv3x3`;
+      helpMessage += `Create your own Messenger Bot at https://tinyurl.com/2585cfad\nTutorial on how to get your account Appstate: https://tinyurl.com/yeysv3x3`;
 
       api.sendMessage(helpMessage, event.threadID, event.messageID);
     } else {
