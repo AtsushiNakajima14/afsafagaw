@@ -1,13 +1,13 @@
 const axios = require("axios");
 
 module.exports.config = {
-    name: "gpt4o",
+    name: "chat",
     version: "1.0.0",
     credits: "Developer",
-    description: "Get answers from GPT4o",
+    description: "Bisan unsa kay wako kabalo",
     hasPrefix: false,
     cooldown: 3,
-    aliases: ["g4o"]
+    aliases: ["openchat", "oc"]
 };
 
 module.exports.run = async function ({ api, event, args }) {
@@ -29,7 +29,7 @@ module.exports.run = async function ({ api, event, args }) {
                 const senderName = userInfo[event.senderID].name;
 
         
-                const response = await axios.get(`https://joshweb.click/api/gpt-4o?q=${encodeURIComponent(q)}&uid=100`);
+                const response = await axios.get(`https://joshweb.click/ai/openchat-3.5?q=${encodeURIComponent(q)}&uid=100`);
                 const answer = response.data.result;
 
                 
