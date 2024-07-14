@@ -24,16 +24,11 @@ module.exports.run = async function ({ api, event, args }) {
             }
 
             try {
-                
-                const userInfo = await api.getUserInfo(event.senderID);
-                const senderName = userInfo[event.senderID].name;
-
-        
                 const response = await axios.get(`https://joshweb.click/ai/openchat-3.5?q=${encodeURIComponent(q)}&uid=100`);
                 const answer = response.data.result;
 
                 
-                const finalMessage = `${answer}\n\nAsked by: ${senderName}`;
+                const finalMessage = `${answer}\n\nMaytag ma brayt kas gipa answer nimo`;
                 api.sendMessage(finalMessage, event.threadID);
             } catch (error) {
                 console.error("Error fetching AI response or user info:", error);
