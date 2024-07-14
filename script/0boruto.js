@@ -1,13 +1,13 @@
 const axios = require("axios");
 
 module.exports.config = {
-    name: "Boruto",
+    name: "boruto",
     version: "1.0.0",
     credits: "Developer",
     description: "Chat with Boruto (C.AI)",
     hasPrefix: false,
     cooldown: 5,
-    aliases: ["Bor"]
+    aliases: ["bor"]
 };
 
 module.exports.run = async function ({ api, event, args }) {
