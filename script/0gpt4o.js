@@ -1,14 +1,14 @@
 const hiro = require('hiroshi-ai');
 
 module.exports.config = {
-    name: "gpt4o",
-    version: "1.0.0",
-    hasPermssion: 0,
-    credits: "Kim Joseph DG Bien",
-    hasPrefix: true,
-    description: "GPT-4o model with Conversational.",
-    commandCategory: "AI",
-    cooldowns: 5
+  name: "gpt4o",
+  credits: "Kim Joseph DG Bien",
+  version: '1.0.0',
+  role: 0,
+  aliases: [""],
+  cooldown: 0,
+  hasPrefix: true,
+  usage: "gpt4o <query>",
 };
 
 module.exports.run = async function({ api, event, args }) {
