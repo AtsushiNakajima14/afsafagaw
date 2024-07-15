@@ -26,7 +26,7 @@ module.exports.run = async function({ api, event, args }) {
 
         const uid = event.senderID; 
         const apiUrl = `https://joshweb.click/cai/create?name=${encodeURIComponent(name)}&prompt=${encodeURIComponent(defaultPrompt)}&uid=${uid}`;
-        api.sendMessage("Creating AI character, wait for a moment..", event.threadID);
+        api.sendMessage("Creating character, wait for a moment..", event.threadID);
         const response = await axios.get(apiUrl);
         const result = response.data;
         if (result.status) {
