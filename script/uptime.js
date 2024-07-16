@@ -19,11 +19,11 @@ api.sendMessage(m, event.threadID, event.messageID)
     const hours = Math.floor(time / (60 * 60));
     const minutes = Math.floor((time % (60 * 60)) / 60);
     const seconds = Math.floor(time % 60);
-    const id = args[0] || "4";
-    const bot = "SemBlance Autobot";
+    const id = Math.floor(Math.random() * 800) + 1;
+    const bot = "SemBlance Bot";
     const insta = "cyyydev";
     const gh = "Unknown";
-    const fb = "Cy Dev";
+    const fb = "Cyy Dev";
     const res = (await axios.get('https://joshweb.click' + `/canvas/uptime?id=${id}&instag=${insta}&ghub=${gh}&fb=${fb}&hours=${hours}&minutes=${minutes}&seconds=${seconds}&botname=${bot}`, {
         responseType: "stream"
     })).data;
