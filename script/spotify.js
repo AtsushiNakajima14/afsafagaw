@@ -3,10 +3,10 @@ module.exports.config = {
     version: "1.0.0",
     role: 0,
     credits: "Developer",
-    description: "chill with music",
-    hasPrefix: false,
-    aliases: ["spotsearch", "spot"],
-    usage: "[spotify <song>]",
+    description: "Listen to music <3",
+    hasPrefix: true,
+    aliases: ["search", "spot"],
+    usage: "[spotify [song]]",
     cooldown: 5
 };
 
@@ -18,11 +18,11 @@ module.exports.run = async function({ api, event, args }) {
     try {
         const query = args.join(" ");
         if (!query) {
-            api.sendMessage("Usage: spotify <song title>", event.threadID);
+            api.sendMessage("How to use: spotify [song]", event.threadID);
             return;
         }
 
-        api.sendMessage("Searching for your Music, please wait...", event.threadID);
+        api.sendMessage("Searching your music, please wait...", event.threadID);
 
         const response = await axios.get(`https://hiroshi-rest-api.replit.app/search/spotify?search=${encodeURIComponent(query)}`);
         const results = response.data;
@@ -36,7 +36,7 @@ module.exports.run = async function({ api, event, args }) {
 
             const trackPath = path.join(__dirname, "track.mp3");
             const imagePath = path.join(__dirname, "track.jpg");
-
+            
             const trackStream = await axios({
                 url: downloadLink,
                 method: 'GET',
@@ -46,6 +46,7 @@ module.exports.run = async function({ api, event, args }) {
             const writer = fs.createWriteStream(trackPath);
             trackStream.data.pipe(writer);
 
+            // Download the track image
             const imageStream = await axios({
                 url: trackImage,
                 method: 'GET',
@@ -62,13 +63,13 @@ module.exports.run = async function({ api, event, args }) {
                 });
 
                 api.sendMessage({
-                    body: `Music: ${trackName}\nLink: ${trackLink}`,
+                    body: `🎵 | Music: ${trackName}\n🔗 | Link: ${trackLink}`,
                     attachment: [
                         fs.createReadStream(trackPath),
                         fs.createReadStream(imagePath)
                     ]
                 }, event.threadID, () => {
-                    fs.unlinkSync(trackPath);
+                    fs.unlinkSync(trackPath); 
                     fs.unlinkSync(imagePath); 
                 });
             });
