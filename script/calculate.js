@@ -8,7 +8,7 @@ module.exports.config = {
 	role: 0,
 	credits: "Kshitiz", 
 	description: "love calculator",
-	hasPrefix: false,
+	hasPrefix: true,
 	usage: "calculate first name | second name",
 	cooldowns: 1,
 };
