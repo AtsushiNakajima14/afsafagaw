@@ -5,7 +5,7 @@ module.exports.config = {
     version: "1.0.0",
     credits: "Developer",
     description: "Bisan unsa kay wako kabalo",
-    hasPrefix: false,
+    hasPrefix: true,
     cooldown: 3,
     aliases: ["openchat", "oc"]
 };
