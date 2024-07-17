@@ -4,7 +4,7 @@ module.exports.config = {
   name: 'bible',
   version: '1.0.0',
   role: 0,
-  hasPrefix: false,
+  hasPrefix: true,
   aliases: ['bible', 'verse'],
   description: " random Bible verse",
   usage: "randombibleverse",
