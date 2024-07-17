@@ -20,7 +20,7 @@ module.exports.config = {
 	version: "1.0.0",
 	role: 2,
 	credits: "cliff",
-	hasPrefix: false,
+	hasPrefix: true,
 	description: "anti gc admin: If someone removes you from admin, the bot will add you again as admin. If the bot is removed from admin, moye moye",
 	usage: "{pn} off or on - current state always on",
 	cooldowns: 5
