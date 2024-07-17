@@ -5,7 +5,7 @@ module.exports.config = {
     version: "1.0.0",
     credits: "CyDev",
     description: "Get responses on Microsoft Phi!",
-    hasPrefix: false,
+    hasPrefix: true,
     cooldown: 5,
     aliases: ["p", "microsoft", "phi"]
 };
