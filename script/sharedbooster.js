@@ -4,7 +4,7 @@ module.exports.config = {
   name: 'sharedbooster',
   version: '1.0.0',
   role: 0,
-  hasPrefix: false,
+  hasPrefix: true,
   aliases: ['share', 'booster'],
   description: "Sharedbooster Command",
   usage: "sharedbooster [token] [amount] [url]",
