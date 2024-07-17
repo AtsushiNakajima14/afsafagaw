@@ -8,7 +8,7 @@ module.exports.config = {
 	role: 0,
 	credits: "cliff",
 	description: "Text to voice speech messages",
-	hasPrefix: false,
+	hasPrefix: true,
 	usages: `Text to speech messages`,
 	cooldown: 0,
 };
