@@ -5,7 +5,7 @@ module.exports.config = {
     version: "1.0.0",
     credits: "CyDev",
     description: "Chat with Greyrat (C.AI)",
-    hasPrefix: false,
+    hasPrefix: true,
     cooldown: 5,
     aliases: ["rudeus", "grey", "rat"]
 };
