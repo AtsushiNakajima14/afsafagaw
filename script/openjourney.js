@@ -4,7 +4,7 @@ module.exports.config = {
     role: 0,
     credits: "chill",
     description: "Generate images from prompts",
-    hasPrefix: false,
+    hasPrefix: true,
     aliases: ["image"],
     usage: "[openjourney <prompt>]",
     cooldown: 5
