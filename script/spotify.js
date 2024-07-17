@@ -7,9 +7,9 @@ module.exports.config = {
     version: "1.0.0",
     credits: "churchillitos",
     description: "Search music",
-    hasPrefix: false,
+    hasPrefix: true,
     cooldown: 5,
-    aliases: ["spot"]
+    aliases: ["spot", "music", "sing", "play"]
 };
 
 module.exports.run = async function ({ api, event, args }) {
