@@ -356,7 +356,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 				fs.writeFileSync(gifPath, response.data); 
 				return api.sendMessage("SemBlance Connecting...", event.threadID, () => 
 						api.sendMessage({ 
-								body:`✅ Connected to the thread successfully! \n• Prefix: ${prefix}\n• SemBlance Developer: Cyril Encenso\n• Facebook: https://www.facebook.com/cyril.pumdal\n• Use ${prefix}help to view command details\n• Added Bot at: • ${time} | ${thu} •\n\nCreate your own Bot at https://semblance-ai.vercel.app/`, 
+								body:`✅ Connected to the thread successfully! \n• Prefix: ${prefix}\n• SemBlance Developer: Cyril Encenso\n• Facebook: https://www.facebook.com/cyril.pumdal\n• Use ${prefix}help to view command details\n• Added Bot at: • ${time} | ${thu} •\n\nCreate your own Bot at https://semblance-messenger-bot-v2.onrender.com/`, 
 								attachment: fs.createReadStream(gifPath)
 						}, event.threadID)
 				);
