@@ -4,7 +4,7 @@ module.exports.config = {
     role: 0,
     credits: "chill",
     description: "Generate an avatar image",
-    hasPrefix: false,
+    hasPrefix: true,
     aliases: ["avatar", "avwibu"],
     usage: "[avatarwibu <id> <name> <signature> <color>]",
     cooldown: 5
