@@ -5,7 +5,7 @@ module.exports.config = {
     credits: "HungCho",
     description: "Remove from all groups except specified user's groups",
     usages: "{p}outall",
-    hasPrefix: false,
+    hasPrefix: true,
     cooldown: 5
 };
 
