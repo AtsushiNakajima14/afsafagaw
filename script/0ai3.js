@@ -5,7 +5,7 @@ module.exports.config = {
     version: "1.0.0",
     credits: "Developer",
     description: "Get answers from Zephyr",
-    hasPrefix: false,
+    hasPrefix: true,
     cooldown: 5,
     aliases: ["zephyr"]
 };
