@@ -6,7 +6,7 @@ module.exports.config = {
     role: 0,
     credits: "Developer",
     description: "Chat with the AI Character you created.",
-    hasPrefix: false,
+    hasPrefix: true,
     aliases: ["cai", "cc"],
     usage: "chatchar (the character you created) (query)",
     cooldown: 5
