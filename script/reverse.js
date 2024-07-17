@@ -3,7 +3,7 @@ module.exports.config = {
 	version: "1.0.0",
 	credits: "Cliff",
 	role: 0,
-	hasPrefix: false,
+	hasPrefix: true,
 	usages: "reverse [text]",
 	aliases: ["rev"],
 	cooldown: 5
