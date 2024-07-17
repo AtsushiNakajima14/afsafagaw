@@ -2,7 +2,7 @@ module.exports.config = {
   name: "dictionary",
   version: "1.0.0",
   role: 0,
-  hasPrefix: false,
+  hasPrefix: true,
   aliases: ['search', 'dic'],
   description: "Search words dictionary",
   usage: "dictionary [word]",
