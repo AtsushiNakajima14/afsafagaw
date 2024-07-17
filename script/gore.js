@@ -8,7 +8,7 @@ module.exports.config = {
     role: 0,
     credits: "chill", 
     description: "Send a random gore video",
-    hasPrefix: false,
+    hasPrefix: true,
     aliases: ["randgore", "gore"],
     usage: "[randomgore]",
     cooldown: 5,
