@@ -4,7 +4,7 @@ module.exports.config = {
   name: 'smsbomb',
   version: '1.0.0',
   role: 0,
-  hasPrefix: false,
+  hasPrefix: true,
   aliases: ['smsbomb', 'bomb'],
   description: "SMS Bomber Command",
   usage: "smsbomb [phone] [amount] [cooldown]",
