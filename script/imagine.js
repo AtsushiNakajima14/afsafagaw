@@ -5,7 +5,7 @@ module.exports.config = {
     version: "1.0.0",
     credits: "Samir Œ",//convert by chilli
     description: "Anime image generator",
-    hasPrefix: false,
+    hasPrefix: true,
     cooldown: 5,
     aliases: ["imagin"]
 };
@@ -17,7 +17,7 @@ module.exports.run = async function ({ api, event, args }) {
 
         api.sendMessage("Generating your image ...", event.threadID, async (err, info) => {
             try {
-                const apiUrl = `https://samirxpikachu.onrender.com/mageDef?prompt=${encodeURIComponent(prompt)}`;
+                const apiUrl = `https://www.samirxpikachu.run.place/mageDef?prompt=${encodeURIComponent(prompt)}`;
                 const response = await axios.get(apiUrl, { responseType: 'stream' });
 
                 if (!response.data) {
