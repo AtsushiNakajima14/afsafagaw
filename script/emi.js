@@ -9,7 +9,7 @@ module.exports.config = {
     name: "emi",
     version: "1.0.0",
     role: 0,
-    hasPrefix: false,
+    hasPrefix: true,
     credits: "Deku",
     description: "Generate image in emi",
     usages: "[prompt]",
