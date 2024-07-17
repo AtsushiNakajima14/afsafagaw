@@ -10,7 +10,7 @@ module.exports.config = {
 		credits: "cliff", //modified by cyril
 		description: "Admin and Bot info.",
 		cooldown: 5,
-		hasPrefix: false,
+		hasPrefix: true,
 };
 
 module.exports.run = async function({ api, event, args, prefix, admin }) {
