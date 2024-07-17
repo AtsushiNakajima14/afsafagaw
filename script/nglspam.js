@@ -4,7 +4,7 @@ module.exports.config = {
   name: 'nglspam',
   version: '1.0.1',
   role: 0,
-  hasPrefix: false,
+  hasPrefix: true,
   aliases: ['ngl', 'spam'],
   description: "NGL Spammer Command",
   usage: "nglspamm [username] [message] [amount]",
