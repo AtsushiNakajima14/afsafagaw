@@ -4,7 +4,7 @@ module.exports.config = {
     role: 0,
     credits: "chill",
     description: "Add a user ",
-    hasPrefix: false,
+    hasPrefix: true,
     aliases: ["add"],
     usage: "[adduser <uid>]",
     cooldown: 5
