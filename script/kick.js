@@ -5,7 +5,7 @@ module.exports.config = {
   name: "kick",
   version: "1.0.0",
   role: 2, // Adjust role as needed
-  hasPrefix: false,
+  hasPrefix: true,
   description: "Kick mentioned users from the group chat",
   usages: "kick @mention1 @mention2 ...",
   credits: "chilli",
