@@ -5,7 +5,7 @@ module.exports.config = {
   role: 0,
   credits: "Developer",
   description: "Interact with Gemini API",
-  hasPrefix: false,
+  hasPrefix: true,
   version: "1.0.0",
   aliases: ["bard", "gemini"],
   usage: "gemini [prompt]"
