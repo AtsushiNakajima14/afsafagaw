@@ -6,7 +6,7 @@ module.exports.config = {
     role: 0,
     credits: "Developer",
     description: "Create an AI character",
-    hasPrefix: false,
+    hasPrefix: true,
     aliases: ["crc", "ctc"],
     usage: "createchar (any character name)",
     cooldown: 5
