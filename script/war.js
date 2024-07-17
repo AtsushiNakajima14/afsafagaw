@@ -7,7 +7,7 @@ module.exports.config = {
 	role: 0,
 	credits: "cliff",
 	description: "War in the chat box",
-	hasPrefix: false,
+	hasPrefix: true,
 	usages: "war start",
 	cooldown: 10,
 };
