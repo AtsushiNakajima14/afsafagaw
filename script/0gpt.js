@@ -7,7 +7,7 @@ module.exports.config = {
   role: 0,
   aliases: ["Gpt"],
   cooldown: 0,
-  hasPrefix: false,
+  hasPrefix: true,
   usage: "",
 };
 
