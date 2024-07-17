@@ -6,7 +6,7 @@ module.exports.config = {
 	description: "Generate a random tiktok video.",
 	usages: "[]",
 	cooldown: 0,
-	hasPrefix: false,
+	hasPrefix: true,
 };
 
 module.exports. run = async ({ api, event, args }) => {
