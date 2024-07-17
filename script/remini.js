@@ -5,6 +5,7 @@ module.exports.config = {
   name: "remini",
   version: "1.0.",
   role: 0,
+  hasPrefix: true,
   credits: "Mark Hitsuraan",
   aliases: [],
   usages: "< reply image >",
