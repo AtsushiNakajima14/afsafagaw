@@ -35,33 +35,32 @@ async function g() {
 }
  
 module.exports.config = {
-		name: "tiktok",
-		version: "1.0",
-		role: 0,
-		credits: "Developer",
-		description: "get random tiktok videos",
-		hasPrefix: false,
-		cooldowns: 5,
-		aliases: ["tt", "tik"]
+    name: "tiktok",
+    version: "1.0",
+    role: 0,
+    credits: "Developer",
+    description: "get random tiktok videos",
+    hasPrefix: false,
+    cooldowns: 5,
+    aliases: ["tt", "tik"]
 };
  
-  module.exports.run = async function ({ message }) {
+module.exports.run = async function ({ message }) {
     try {
-      const { u, l } = await g();
+        const { u, l } = await g();
  
-      const s = await global.utils.getStreamFromURL(u);
+        const s = await global.utils.getStreamFromURL(u);
  
-      if (!s) {
-        return message.reply("Failed to retrieve the video. Please try again.");
-      }
+        if (!s) {
+            return message.reply("Failed to retrieve the video. Please try again.");
+        }
  
-      return message.reply({
-        body: `Here's a random tiktok video!\n${l} likes:`,
-        attachment: s
-      });
+        return message.reply({
+            body: `Here's a random tiktok video!\n${l} likes:`,
+            attachment: s
+        });
     } catch (e) {
-      console.error("Error fetching or sending the video:", e);
-      return message.reply("An error occurred while fetching the video. Please try again later.");
+        console.error("Error fetching or sending the video:", e);
+        return message.reply("An error occurred while fetching the video. Please try again later.");
     }
-  }
 };
