@@ -7,7 +7,7 @@ module.exports.config = {
     version: "1.0.0",
     credits: "chill",
     description: "Generate images",
-    hasPrefix: false,
+    hasPrefix: true,
     cooldown: 5,
     aliases: ["sdxl"]
 };
