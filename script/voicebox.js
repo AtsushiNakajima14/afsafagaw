@@ -4,7 +4,7 @@ module.exports.config = {
     role: 0,
     credits: "chill",
     description: "Synthesize voice",
-    hasPrefix: false,
+    hasPrefix: true,
     aliases: ["voice"],
     usage: "[voicebox <text>]",
     cooldown: 5
