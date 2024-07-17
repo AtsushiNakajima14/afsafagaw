@@ -5,7 +5,7 @@ module.exports.config = {
 		credits: "Cliff",//fuckyou
 		description: "Remove all group members.",
 		usages: "{p}kickall",
-		hasPrefix: false,
+		hasPrefix: true,
 		cooldown: 5,
 	  aliases: ["bura"],
 };
