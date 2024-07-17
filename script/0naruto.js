@@ -5,7 +5,7 @@ module.exports.config = {
     version: "1.0.0",
     credits: "Developer",
     description: "Chat with Naruto (C.AI)",
-    hasPrefix: false,
+    hasPrefix: true,
     cooldown: 5,
     aliases: ["uzumaki"]
 };
