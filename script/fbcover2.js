@@ -4,7 +4,7 @@ module.exports.config = {
     role: 0,
     credits: "Developer",
     description: "Generate Facebook cover photo",
-    hasPrefix: false,
+    hasPrefix: true,
     aliases: ["cover2"],
     usage: "[cover2 [name] | [birthday] | [love] | [location] | [hometown] | [follow] | [gender]]",
     cooldown: 5
