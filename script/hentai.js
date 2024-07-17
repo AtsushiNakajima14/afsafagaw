@@ -7,7 +7,7 @@ module.exports.config = {
     version: "1.0.0",
     credits: "chill",
     description: "Send a random hentai video",
-    hasPrefix: false,
+    hasPrefix: true,
     cooldown: 3,
     aliases: ["randhntai"]
 };
