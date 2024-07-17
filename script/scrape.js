@@ -5,7 +5,7 @@ module.exports.config = {
   hasPermssion: 0,
   credits: "Developer",
   description: 'Scraping Web and api/output',
-  usePrefix: false,
+  usePrefix: true,
   hasPrefix: true,
   commandCategory: 'url',
   usage: '{pn} [url]',
