@@ -4,7 +4,7 @@ module.exports.config = {
 		credits: "Him",
 		role: 0,
 		description: "Lấy tên và id các nhóm chứa bot",
-		hasPrefix: false,
+		hasPrefix: true,
 	  aliases: ["allbox"],
 		usage: "allbox",
 		cooldown: 5
