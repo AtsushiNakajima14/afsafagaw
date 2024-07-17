@@ -5,7 +5,7 @@ module.exports.config = {
   name: "countmember",
   version: "1.0.0",
   role: 0,
-  hasPrefix: false,
+  hasPrefix: true,
   description: "Count all members in the group chat",
   usages: "countmember",
   credits: "chilli",
