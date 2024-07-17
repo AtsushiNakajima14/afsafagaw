@@ -4,7 +4,7 @@
     role: 0,
     credits: "Joshua Sy",
     description: "Image search",
-    hasPrefix: false,
+    hasPrefix: true,
     commandCategory: "Search",
     usages: "[Text]",
     cooldowns: 0,
