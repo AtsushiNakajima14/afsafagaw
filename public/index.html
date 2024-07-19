@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>SemBlance Messenger Bot V2</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -9,19 +10,19 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: #2c2c2c;
+            background: linear-gradient(135deg, #2c2c2c, #1e1e1e);
             color: #f8f9fa;
             margin: 0;
             padding: 0;
         }
 
         .container {
-            background: #3a3a3a;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 20px auto;
-            max-width: 800px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            margin: 30px auto;
+            max-width: 900px;
             animation: fadeIn 1s ease-in-out;
         }
 
@@ -29,12 +30,16 @@
             text-align: center;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             color: #ffffff;
             font-weight: 600;
+            animation: slideIn 1s ease-in-out;
         }
 
-        p, label, small {
+        p,
+        label,
+        small {
             color: #d1d1d1;
         }
 
@@ -43,12 +48,13 @@
             display: flex;
             width: 100%;
             min-height: 150px;
-            padding: 10px;
+            padding: 15px;
             box-sizing: border-box;
             border: 1px solid #ced4da;
-            border-radius: 5px;
+            border-radius: 10px;
             resize: none;
             background-color: #4a4a4a;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .custom-btn {
@@ -56,12 +62,18 @@
             border: 1px solid #17a2b8;
             color: #ffffff;
             transition: all 0.3s ease;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            margin: 10px;
+            animation: bounceIn 1s ease-in-out;
         }
 
         .custom-btn:hover {
             background-color: #138496;
             border: 1px solid #138496;
             transform: scale(1.05);
+            animation: hoverEffect 0.3s ease-in-out;
         }
 
         .form-check-input {
@@ -73,8 +85,8 @@
         }
 
         .footer {
-            background-color: #3a3a3a;
-            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
             text-align: center;
             font-size: 16px;
             color: #d1d1d1;
@@ -89,21 +101,24 @@
         }
 
         #result {
-            padding: 10px;
+            padding: 20px;
             margin-top: 20px;
-            border-radius: 5px;
+            border-radius: 10px;
             background-color: #4a4a4a;
+            animation: fadeIn 1s ease-in-out;
         }
 
-        #inputOfPrefix, #inputOfAdmin {
-            padding: 13px;
+        #inputOfPrefix,
+        #inputOfAdmin {
+            padding: 15px;
             width: 100%;
             border: 1px solid #ced4da;
-            border-radius: 8px;
+            border-radius: 10px;
             background-color: #4a4a4a;
             margin-top: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             color: #d1d1d1;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .center-placeholder::placeholder {
@@ -114,19 +129,92 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
+                transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0%,
+            20%,
+            40%,
+            60%,
+            80%,
+            100% {
+                animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            }
+
+            0% {
+                opacity: 0;
+                transform: scale3d(0.3, 0.3, 0.3);
+            }
+
+            20% {
+                transform: scale3d(1.1, 1.1, 1.1);
+            }
+
+            40% {
+                transform: scale3d(0.9, 0.9, 0.9);
+            }
+
+            60% {
+                opacity: 1;
+                transform: scale3d(1.03, 1.03, 1.03);
+            }
+
+            80% {
+                transform: scale3d(0.97, 0.97, 0.97);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        @keyframes hoverEffect {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
             }
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                padding: 20px;
             }
 
-            h1, h2 {
+            h1,
+            h2 {
                 font-size: 1.5rem;
+            }
+
+            .custom-btn {
+                font-size: 14px;
+                padding: 10px 15px;
             }
         }
 
@@ -134,9 +222,11 @@
             background: rgba(255, 255, 255, 0.1);
             color: #ffffff;
             text-align: center;
-            padding: 10px;
+            padding: 15px;
             margin-bottom: 20px;
             font-size: 14px;
+            border-radius: 10px;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .credits-header a {
@@ -147,8 +237,37 @@
         .credits-header a:hover {
             text-decoration: underline;
         }
+
+        .form-group textarea {
+            background: rgba(0, 0, 0, 0.1);
+            border: none;
+            color: #d1d1d1;
+            font-size: 14px;
+        }
+
+        .form-group textarea::placeholder {
+            color: #b0b0b0;
+        }
+
+        .form-check-input:checked {
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+        }
+
+        .form-check-input:focus {
+            box-shadow: none;
+        }
+
+        .form-check-label {
+            color: #ffffff;
+        }
+
+        .disable {
+            opacity: 0.5;
+        }
     </style>
 </head>
+
 <body>
     <div class="credits-header">
         <p>Tutorial on how to get Account Appstate: <a href="https://tinyurl.com/yzkm8kfd" target="_blank">https://tinyurl.com/yzkm8kfd</a></p>
@@ -193,7 +312,7 @@
         <p>Ping: <span id="ping"></span></p>
     </div>
     <script>
-        document.getElementById('agreeCheckbox').addEventListener('change', function() {
+        document.getElementById('agreeCheckbox').addEventListener('change', function () {
             document.getElementById('submitButton').disabled = !this.checked;
         });
 
@@ -206,7 +325,7 @@
         function measurePing() {
             var xhr = new XMLHttpRequest();
             var startTime, endTime;
-            xhr.onreadystatechange = function() {
+            xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
                     endTime = Date.now();
                     var pingTime = endTime - startTime;
@@ -433,4 +552,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 </body>
+
 </html>
