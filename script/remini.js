@@ -1,37 +1,52 @@
-const axios = require('axios');
-const fs = require('fs-extra');
+const axios = require("axios");
+const fs = require("fs");
+const path = require("path");
 
 module.exports.config = {
-  name: "remini",
-  version: "1.0.",
-  role: 0,
-  hasPrefix: true,
-  credits: "Mark Hitsuraan",
-  aliases: [],
-  usages: "< reply image >",
-  cd: 2,
+    name: "remini",
+    version: "1.0.0",
+    role: 0,
+    credits: "chill",
+    description: "Enhance an image",
+    hasPrefix: true,
+    aliases: ["4k"],
+    usage: "[4k]",
+    cooldown: 5
 };
 
-module.exports.run = async ({ api, event, args }) => {
-  let pathie = __dirname + `/cache/zombie.jpg`;
-  const { threadID, messageID } = event;
+module.exports.run = async function({ api, event }) {
+    try {
+        // Check if there is an attachment
+        if (!event.messageReply || !event.messageReply.attachments || event.messageReply.attachments.length === 0) {
+            return api.sendMessage("Please reply to an image with this command to enhance it.", event.threadID);
+        }
 
-  var mark = event.messageReply.attachments[0].url || args.join(" ");
+        const attachment = event.messageReply.attachments[0];
 
-  try {
-    api.sendMessage("Generating...", threadID, messageID);
-    const response = await axios.get(`https://markdevs69-1efde24ed4ea.herokuapp.com/api/remini?inputImage=${encodeURIComponent(mark)}`);
-    const processedImageURL = response.data.image_data;
+        // Only proceed if the attachment is an image
+        if (attachment.type !== 'photo') {
+            return api.sendMessage("Please reply to a valid image to enhance.", event.threadID);
+        }
 
-    const img = (await axios.get(processedImageURL, { responseType: "arraybuffer"})).data;
+        const imageUrl = attachment.url;
+        const apiUrl = `https://hiroshi-rest-api.replit.app/tools/remini?url=${encodeURIComponent(imageUrl)}`;
 
-    fs.writeFileSync(pathie, Buffer.from(img, 'utf-8'));
+        api.sendMessage("Enhancing the image, please wait...", event.threadID);
 
-    api.sendMessage({
-      body: "Processed Image",
-      attachment: fs.createReadStream(pathie)
-    }, threadID, () => fs.unlinkSync(pathie), messageID);
-  } catch (error) {
-    api.sendMessage(`Error processing image: ${error}`, threadID, messageID);
-  };
+        const response = await axios.get(apiUrl, { responseType: 'arraybuffer' });
+        const enhancedImagePath = path.join(__dirname, "enhancedImage.png");
+
+        fs.writeFileSync(enhancedImagePath, response.data);
+
+        api.sendMessage({
+            body: "Here is your enhanced image:",
+            attachment: fs.createReadStream(enhancedImagePath)
+        }, event.threadID, () => {
+            fs.unlinkSync(enhancedImagePath);
+        });
+
+    } catch (error) {
+        console.error('Error:', error);
+        api.sendMessage("An error occurred while processing the request.", event.threadID);
+    }
 };
