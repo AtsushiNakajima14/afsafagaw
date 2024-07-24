@@ -17,7 +17,7 @@ module.exports.config = {
 module.exports.run = async function ({ api, event, args }) {
     try {
         if (args.length === 0) {
-            api.sendMessage("Usage: fbpostv1 @mention | text | name or fbpostv1 text | name", event.threadID);
+            api.sendMessage("Usage: fbpos @mention | text | name or fbpostv1 text | name", event.threadID);
             return;
         }
 
