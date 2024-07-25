@@ -1,47 +1,78 @@
-const axios = require("axios");
+const axios = require('axios');
 
 module.exports.config = {
-    name: "ai",
-    version: "1.0.0",
-    credits: "Developer",
-    description: "Get answers from GPT4",
-    hasPrefix: true,
-    cooldown: 3,
-    aliases: ["gpt4"]
+  name: 'ai',
+  version: '1.0.0',
+  role: 0,
+  hasPrefix: true,
+  aliases: ['gpt4'],
+  description: "AI",
+  usage: "ai [prompt]",
+  credits: 'Developer',
+  cooldown: 3,
 };
 
-module.exports.run = async function ({ api, event, args }) {
-    try {
-        let q = args.join(" ");
-        if (!q) {
-            return api.sendMessage("Please provide a question..", event.threadID, event.messageID);
-        }
+module.exports.run = async function({ api, event, args }) {
+  const prompt = args.join(" ");
+  const userID = "100";
 
-        api.sendMessage("Processing query...", event.threadID, async (err, info) => {
-            if (err) {
-                console.error("Error sending initial message:", err);
-                return api.sendMessage("An error occurred while processing your request.", event.threadID);
-            }
+  if (!prompt) {
+    api.sendMessage('Please provide a query..', event.threadID, event.messageID);
+    return;
+  }
 
-            try {
-                
-                const userInfo = await api.getUserInfo(event.senderID);
-                const senderName = userInfo[event.senderID].name;
+  const chill = await new Promise(resolve => {
+    api.sendMessage('Processing query..'), event.threadID, (err, info) => {
+      if (err) {
+        console.error('Error sending message:', err);
+        return;
+      }
+      api.setMessageReaction("⏳", info.messageID, (err) => {
+        if (err) console.error('Error setting reaction:', err);
+      });
+      resolve(info);
+    });
+  });
 
-        
-                const response = await axios.get(`https://joshweb.click/gpt4?prompt=${encodeURIComponent(q)}&uid=100`);
-                const answer = response.data.result;
+  const apiUrl = `https://markdevs-last-api-as2j.onrender.com/gpt4?prompt=${encodeURIComponent(prompt)}&uid=${encodeURIComponent(userID)}`;
 
-                
-                const finalMessage = `GPT-4 CONTINUES AI\n━━━━━━━━━━━━━━━━━━\n${answer}\n━━━━━━━━━━━━━━━━━━\nPlease type "ai clear" to reset your previous chats\nQuestioned by: ${senderName}\n━━━━━━━━━━━━━━━━━━\nIf it errors try to use ai2 or ai3`;
-                api.sendMessage(finalMessage, event.threadID);
-            } catch (error) {
-                console.error("Error fetching AI response or user info:", error);
-                api.sendMessage("An error occurred while processing your request.", event.threadID);
-            }
+  try {
+    const startTime = Date.now();
+    const hot = await axios.get(apiUrl);
+    const result = hot.data;
+    const aiResponse = result.gpt4;
+    const endTime = Date.now();
+    const responseTime = ((endTime - startTime) / 1000).toFixed(2);
+
+    api.getUserInfo(event.senderID, async (err, ret) => {
+      if (err) {
+        console.error('Error fetching user info:', err);
+        await api.editMessage('Error fetching user info.', chill.messageID);
+        return;
+      }
+
+      const userName = ret[event.senderID].name;
+      const formattedResponse = `GPT-4 CONTINUES AI
+━━━━━━━━━━━━━━━━━━
+${aiResponse}
+━━━━━━━━━━━━━━━━━━
+Questioned by: ${userName}
+Response Time: ${responseTime}s
+━━━━━━━━━━━━━━━━━━
+If it errors try to use ai2 or ai3`;
+
+      try {
+        await api.editMessage(formattedResponse, chill.messageID);
+        api.setMessageReaction("✅", chill.messageID, (err) => {
+          if (err) console.error('Error setting reaction:', err);
         });
-    } catch (error) {
-        console.error("Error in ai command:", error);
-        api.sendMessage("An error occurred while processing your request.", event.threadID);
-    }
+      } catch (error) {
+        console.error('Error editing message:', error);
+        api.sendMessage('Error editing message: ' + error.message, event.threadID, event.messageID);
+      }
+    });
+  } catch (error) {
+    console.error('Error:', error);
+    await api.editMessage('Error: ' + error.message, chill.messageID);
+  }
 };
