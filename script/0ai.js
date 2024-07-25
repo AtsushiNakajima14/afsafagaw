@@ -4,10 +4,10 @@ module.exports.config = {
     name: "ai",
     version: "1.0.0",
     credits: "Developer",
-    description: "Get answers from Qwen",
+    description: "Get answers from GPT4",
     hasPrefix: true,
     cooldown: 3,
-    aliases: ["semblance", "sem", "qwen"]
+    aliases: ["gpt4"]
 };
 
 module.exports.run = async function ({ api, event, args }) {
@@ -29,11 +29,11 @@ module.exports.run = async function ({ api, event, args }) {
                 const senderName = userInfo[event.senderID].name;
 
         
-                const response = await axios.get(`https://joshweb.click/ai/qwen1.5-14b?q=${encodeURIComponent(q)}&uid=100`);
+                const response = await axios.get(`https://joshweb.click/gpt4?prompt=${encodeURIComponent(q)}&uid=100`);
                 const answer = response.data.result;
 
                 
-                const finalMessage = `${answer}\n\nAsked by: ${senderName}`;
+                const finalMessage = `GPT-4 CONTINUES AI\n━━━━━━━━━━━━━━━━━━\n${answer}\n━━━━━━━━━━━━━━━━━━\nPlease type "ai clear" to reset your previous chats\nQuestioned by: ${senderName}\n━━━━━━━━━━━━━━━━━━\nIf it errors try to use ai2 or ai3`;
                 api.sendMessage(finalMessage, event.threadID);
             } catch (error) {
                 console.error("Error fetching AI response or user info:", error);
