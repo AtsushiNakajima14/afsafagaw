@@ -6,10 +6,9 @@ module.exports.config = {
   role: 0,
   hasPrefix: true,
   aliases: ['gpt4'],
-  description: "AI",
   usage: "ai [prompt]",
   credits: 'Developer',
-  cooldown: 3,
+  cooldown: 0,
 };
 
 module.exports.run = async function({ api, event, args }) {
@@ -17,12 +16,12 @@ module.exports.run = async function({ api, event, args }) {
   const userID = "100";
 
   if (!prompt) {
-    api.sendMessage('Please provide a query..', event.threadID, event.messageID);
+    api.sendMessage('Please provide a query.', event.threadID, event.messageID);
     return;
   }
 
-  const chill = await new Promise(resolve => {
-    api.sendMessage('Processing query..'), event.threadID, (err, info) => {
+  const chill = await new Promise((resolve) => {
+    api.sendMessage('Processing query..', event.threadID, (err, info) => {
       if (err) {
         console.error('Error sending message:', err);
         return;
