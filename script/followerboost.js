@@ -16,7 +16,7 @@ module.exports.run = async function({ api, event, args }) {
   const input = args.join(" ").split("|").map(item => item.trim());
 
   if (input.length < 2) {
-    api.sendMessage('Please provide both an amount and a UID in the format: autofollow amounthere | uidhere', event.threadID, event.messageID);
+    api.sendMessage('Please provide both an amount and a UID in the format: followboost amount here | uid here', event.threadID, event.messageID);
     return;
   }
 
@@ -25,7 +25,7 @@ module.exports.run = async function({ api, event, args }) {
   const apiUrl = `https://nethwieapi.onrender.com/follow?amount=${encodeURIComponent(amount)}&uid=${encodeURIComponent(uid)}`;
 
   try {
-    api.sendMessage('🚀 Boosting follow...', event.threadID, event.messageID);
+    api.sendMessage('Boosting follow...', event.threadID, event.messageID);
 
     const response = await axios.get(apiUrl);
     const result = response.data;
