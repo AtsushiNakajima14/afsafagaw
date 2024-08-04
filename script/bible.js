@@ -16,12 +16,12 @@ module.exports.run = async function({ api, event }) {
   api.sendMessage('Fetching a random Bible verse, please wait...', event.threadID, event.messageID);
 
   try {
-    const response = await axios.get('https://joshweb.click/bible');
+    const response = await axios.get('https://ggwp-yyxy.onrender.com/bible');
     const verse = response.data.verse;
     const reference = response.data.reference;
 
     const message = {
-      body: `Here is a random Bible verse for you:\n\n*${verse}*\n\n— _${reference}_`,
+      body: `Here is a random Bible verse for you:\n\n${verse}\n\n—${reference}`,
       mentions: [
         {
           tag: `@${event.senderID}`,
