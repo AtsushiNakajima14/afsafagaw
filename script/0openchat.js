@@ -24,7 +24,7 @@ module.exports.run = async function ({ api, event, args }) {
             }
 
             try {
-                const response = await axios.get(`https://joshweb.click/ai/openchat-3.5?q=${encodeURIComponent(q)}&uid=100`);
+                const response = await axios.get(`https://ggwp-yyxy.onrender.com/ai/openchat-3.5?q=${encodeURIComponent(q)}&uid=100`);
                 const answer = response.data.result;
 
                 
