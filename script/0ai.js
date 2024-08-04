@@ -29,7 +29,7 @@ module.exports.run = async function ({ api, event, args }) {
                 const senderName = userInfo[event.senderID].name;
 
         
-                const response = await axios.get(`https://joshweb.click/gpt4?prompt=${encodeURIComponent(q)}&uid=100`);
+                const response = await axios.get(`https://ggwp-yyxy.onrender.com/gpt4?prompt=${encodeURIComponent(q)}&uid=100`);
                 const answer = response.data.gpt4;
 
                 
