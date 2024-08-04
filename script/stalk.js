@@ -31,8 +31,8 @@ gender = "Male";
     else if(gendernum ==1){
       gender = "Female";
     }
-    if(mentionedUID == 100039366339941){
-      gender= "Bading";
+    if(mentionedUID == 100057648637336){
+      gender= "Male";
     }
     fs.writeFileSync('cache/avt.png', Buffer.from(Avatar, 'binary'));
 
