@@ -36,7 +36,7 @@ module.exports.run = async function({ api, event, args }) {
         profilePicResponse.data.pipe(writer);
 
         writer.on('finish', async () => {
-            const apiUrl = `https://joshweb.click/canvas/fbcoverv3?name=${encodeURIComponent(name)}&birthday=${encodeURIComponent(birthday)}&love=${encodeURIComponent(love)}&location=${encodeURIComponent(location)}&hometown=${encodeURIComponent(hometown)}&follow=${encodeURIComponent(follow)}&gender=${encodeURIComponent(gender)}&uid=${event.senderID}`;
+            const apiUrl = `https://ggwp-yyxy.onrender.com/canvas/fbcoverv3?name=${encodeURIComponent(name)}&birthday=${encodeURIComponent(birthday)}&love=${encodeURIComponent(love)}&location=${encodeURIComponent(location)}&hometown=${encodeURIComponent(hometown)}&follow=${encodeURIComponent(follow)}&gender=${encodeURIComponent(gender)}&uid=${event.senderID}`;
 
             api.sendMessage("Processing Cover Photo, wait for a moment...", event.threadID);
 
