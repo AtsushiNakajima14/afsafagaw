@@ -23,7 +23,7 @@ module.exports.run = async function({ api, event, args }) {
     api.sendMessage('Processing query...', event.threadID, event.messageID);
 
     try {
-        const pangit = await axios.get('https://joshweb.click/blackbox', {
+        const pangit = await axios.get('https://ggwp-yyxy.onrender.com/blackbox', {
             params: { prompt: bulag }
         });
         const mapanghi = pangit.data;
