@@ -18,7 +18,7 @@ module.exports.run = async function ({ api, event }) {
     try {
         api.sendMessage("⏱️ | Fetching a random gore video, please wait...", event.threadID);
 
-        const poginichill = await axios.get('https://joshweb.click/api/randgre');
+        const poginichill = await axios.get('https://ggwp-yyxy.onrender.com/api/randgre');
         const chilli = poginichill.data.result;
 
         if (!chilli || chilli.length === 0) {
