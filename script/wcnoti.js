@@ -61,7 +61,7 @@ module.exports.handleEvent = async function({ api, event }) {
             const uid = participant.userFbId;
             const background = settings.background;
 
-            const apiUrl = `https://joshweb.click/canvas/welcome?name=${encodeURIComponent(name)}&groupname=${encodeURIComponent(groupname)}&groupicon=${encodeURIComponent(groupicon)}&member=${memberCount}&uid=${uid}&background=${encodeURIComponent(background)}`;
+            const apiUrl = `https://ggwp-yyxy.onrender.com/canvas/welcome?name=${encodeURIComponent(name)}&groupname=${encodeURIComponent(groupname)}&groupicon=${encodeURIComponent(groupicon)}&member=${memberCount}&uid=${uid}&background=${encodeURIComponent(background)}`;
             
             const response = await axios.get(apiUrl, { responseType: 'arraybuffer' });
             const welcomePhotoPath = path.join(__dirname, "welcome.jpg");
