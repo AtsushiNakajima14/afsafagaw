@@ -23,7 +23,7 @@ module.exports.run = async function({ api, event, args }) {
             return api.sendMessage("Please provide all required parameters: name | id | subname | colorname | colorsub ", event.threadID);
         }
 
-        const apiUrl = `https://joshweb.click/canvas/fbcoverv4?name=${encodeURIComponent(name)}&id=${encodeURIComponent(id)}&subname=${encodeURIComponent(subname)}&colorname=${encodeURIComponent(colorname)}&colorsub=${encodeURIComponent(colorsub)}&uid=${event.senderID}`;
+        const apiUrl = `https://ggwp-yyxy.onrender.com/canvas/fbcoverv4?name=${encodeURIComponent(name)}&id=${encodeURIComponent(id)}&subname=${encodeURIComponent(subname)}&colorname=${encodeURIComponent(colorname)}&colorsub=${encodeURIComponent(colorsub)}&uid=${event.senderID}`;
 
         api.sendMessage("Generating Facebook cover photo, please wait...", event.threadID);
 
