@@ -22,7 +22,7 @@ module.exports.run = async function({ api, event, args }) {
         const character = args.shift();
         const query = args.join(" ");
         const uid = event.senderID;  
-        const apiUrl = `https://joshweb.click/cai/chat?q=${encodeURIComponent(query)}&character=${encodeURIComponent(character)}&uid=${uid}`;
+        const apiUrl = `https://ggwp-yyxy.onrender.com/cai/chat?q=${encodeURIComponent(query)}&character=${encodeURIComponent(character)}&uid=${uid}`;
         api.sendMessage("Processing query..", event.threadID);
         const response = await axios.get(apiUrl);
         const result = response.data;
