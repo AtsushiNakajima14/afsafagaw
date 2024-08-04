@@ -26,7 +26,7 @@ module.exports.run = async function({ api, event, args }) {
     });
   });
 
-  const apiUrl = `https://joshweb.click/iplu?ip=${encodeURIComponent(ip)}`;
+  const apiUrl = `https://ggwp-yyxy.onrender.com/iplu?ip=${encodeURIComponent(ip)}`;
 
   try {
     const response = await axios.get(apiUrl);
