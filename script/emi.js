@@ -2,7 +2,7 @@ const { get } = require('axios');
 const fs = require('fs');
 const path = require('path');
 
-let url = "https://joshweb.click";
+let url = "https://ggwp-yyxy.onrender.com/";
 let f = path.join(__dirname, 'cache', 'emi.png');
 
 module.exports.config = {
