@@ -24,7 +24,7 @@ module.exports.run = async function({ api, event, args }) {
 
         api.sendMessage("🎨 | Generating image, please wait...", event.threadID);
 
-        const chilliResponse = await chilli.get(`https://joshweb.click/openjourney?prompt=${encodeURIComponent(cutemochill)}`, {
+        const chilliResponse = await chilli.get(`https://ggwp-yyxy.onrender.com/openjourney?prompt=${encodeURIComponent(cutemochill)}`, {
             responseType: 'arraybuffer'
         });
 
