@@ -19,7 +19,7 @@ module.exports.run = async function ({ api, event, args }) {
 
         api.sendMessage("Processing query...", event.threadID, async (err, info) => {
             try {
-                const response = await axios.get(`https://joshweb.click/ai/starling-lm-7b?q=${encodeURIComponent(q)}&uid=100`);
+                const response = await axios.get(`https://ggwp-yyxy.onrender.com/ai/starling-lm-7b?q=${encodeURIComponent(q)}&uid=100`);
                 const answer = response.data.result;
 
                 api.sendMessage(answer, event.threadID);
