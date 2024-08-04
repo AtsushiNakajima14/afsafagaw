@@ -26,7 +26,7 @@ module.exports.run = async function ({ api, event, args }) {
   api.sendTypingIndicator(event.threadID);
 
   try {
-    const response = await axios.get(`https://joshweb.click/gemini?prompt=${encodeURIComponent(prompt)}&url=${url}`);
+    const response = await axios.get(`https://ggwp-yyxy.onrender.com/gemini?prompt=${encodeURIComponent(prompt)}&url=${url}`);
     const description = response.data.gemini;
 
     return api.sendMessage(description, event.threadID, event.messageID);
