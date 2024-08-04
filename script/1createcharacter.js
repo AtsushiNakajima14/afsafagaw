@@ -25,7 +25,7 @@ module.exports.run = async function({ api, event, args }) {
         }
 
         const uid = event.senderID; 
-        const apiUrl = `https://joshweb.click/cai/create?name=${encodeURIComponent(name)}&prompt=${encodeURIComponent(defaultPrompt)}&uid=${uid}`;
+        const apiUrl = `https://ggwp-yyxy.onrender.com/cai/create?name=${encodeURIComponent(name)}&prompt=${encodeURIComponent(defaultPrompt)}&uid=${uid}`;
         api.sendMessage("Creating character, wait for a moment..", event.threadID);
         const response = await axios.get(apiUrl);
         const result = response.data;
