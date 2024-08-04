@@ -19,7 +19,7 @@ module.exports.run = async function ({ api, event, args }) {
 
         api.sendMessage("Processing your query...", event.threadID, async (err, info) => {
             try {
-                const response = await axios.get(`https://joshweb.click/ai/phi-2?q=${encodeURIComponent(q)}&uid=100`);
+                const response = await axios.get(`https://ggwp-yyxy.onrender.com/ai/phi-2?q=${encodeURIComponent(q)}&uid=100`);
                 const answer = response.data.result;
 
                 api.sendMessage(answer, event.threadID);
