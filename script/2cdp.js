@@ -16,7 +16,7 @@ module.exports.config = {
 
 module.exports.run = async function({ api, event }) {
     try {
-        const apiUrl = 'https://ggwp-yyxy.onrender.com/cdp';
+        const apiUrl = 'https://deku-rest-api.gleeze.com/cdp';
         api.sendMessage("Fetching data..", event.threadID);
 
         const response = await axios.get(apiUrl);
