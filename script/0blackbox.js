@@ -1,39 +1,47 @@
-const axios = require('axios');
+const axios = require("axios");
 
 module.exports.config = {
-    name: 'blackbox',
-    version: '1.0.0',
-    role: 0,
+    name: "blackbox",
+    version: "1.0.0",
+    credits: "Developer",
+    description: "Your helpful assistant!",
     hasPrefix: true,
-    aliases: ['aiv2'],
-    description: 'Your helpful assistant!',
-    usage: 'aiv2 [Test]',
-    credits: 'Developer',
-    cooldown: 3,
+    cooldown: 2,
+    aliases: ["aiv2"]
 };
 
-module.exports.run = async function({ api, event, args }) {
-    const bulag = args.join(' ');
-
-    if (!bulag) {
-        api.sendMessage('Please provide a question', event.threadID, event.messageID);
-        return;
-    }
-
-    api.sendMessage('Processing query...', event.threadID, event.messageID);
-
+module.exports.run = async function ({ api, event, args }) {
     try {
-        const pangit = await axios.get('https://ggwp-yyxy.onrender.com/blackbox', {
-            params: { prompt: bulag }
+        let q = args.join(" ");
+        if (!q) {
+            return api.sendMessage("Please provide a question..", event.threadID, event.messageID);
+        }
+
+        api.sendMessage("Processing query...", event.threadID, async (err, info) => {
+            if (err) {
+                console.error("Error sending initial message:", err);
+                return api.sendMessage("An error occurred while processing your request.", event.threadID);
+            }
+
+            try {
+                
+                const userInfo = await api.getUserInfo(event.senderID);
+                const senderName = userInfo[event.senderID].name;
+
+        
+                const response = await axios.get(`https://deku-rest-api.gleeze.com/api/blackboxai?q=${encodeURIComponent(q)}&uid=100`);
+                const answer = response.data.result;
+
+                
+                const finalMessage = `BLACKBOX CONTINUES AI\n━━━━━━━━━━━━━━━━━━\n${answer}\n━━━━━━━━━━━━━━━━━━\nQuestioned by: ${senderName}\n━━━━━━━━━━━━━━━━━━\nType ai clear to reset your previous chats`;
+                api.sendMessage(finalMessage, event.threadID);
+            } catch (error) {
+                console.error("Error fetching AI response or user info:", error);
+                api.sendMessage("An error occurred while processing your request.", event.threadID);
+            }
         });
-        const mapanghi = pangit.data;
-
-        const responseString = mapanghi.data ? mapanghi.data : JSON.stringify(mapanghi, null, 2);
-
-        api.sendMessage(responseString, event.threadID, event.messageID);
-
     } catch (error) {
-        console.error('Error:', error);
-        api.sendMessage('An error occurred while fetching the response.', event.threadID, event.messageID);
+        console.error("Error in ai command:", error);
+        api.sendMessage("An error occurred while processing your request.", event.threadID);
     }
 };
