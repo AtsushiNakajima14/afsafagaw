@@ -7,8 +7,8 @@ module.exports.config = {
   hasPrefix: true,
   aliases: ['bible', 'verse'],
   description: " random Bible verse",
-  usage: "randombibleverse",
-  credits: 'chilling',
+  usage: "verse",
+  credits: 'Developer',
   cooldown: 3,
 };
 
@@ -16,7 +16,7 @@ module.exports.run = async function({ api, event }) {
   api.sendMessage('Fetching a random Bible verse, please wait...', event.threadID, event.messageID);
 
   try {
-    const response = await axios.get('https://ggwp-yyxy.onrender.com/bible');
+    const response = await axios.get('https://deku-rest-api.gleeze.com/bible');
     const verse = response.data.verse;
     const reference = response.data.reference;
 
