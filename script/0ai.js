@@ -4,7 +4,7 @@ module.exports.config = {
     name: "ai",
     version: "1.0.0",
     credits: "Developer",
-    description: "Get answers from GPT-4",
+    description: "Your helpful assistant!",
     hasPrefix: true,
     cooldown: 2,
     aliases: ["gpt4"]
@@ -29,7 +29,7 @@ module.exports.run = async function ({ api, event, args }) {
                 const senderName = userInfo[event.senderID].name;
 
         
-                const response = await axios.get(`https://ggwp-yyxy.onrender.com/gpt4?prompt=${encodeURIComponent(q)}&uid=100`);
+                const response = await axios.get(`https://deku-rest-api.gleeze.com/gpt4?prompt=${encodeURIComponent(q)}&uid=100`);
                 const answer = response.data.gpt4;
 
                 
