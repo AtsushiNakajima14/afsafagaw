@@ -5,10 +5,10 @@ module.exports.config = {
     version: '1.0.0',
     role: 0,
     hasPrefix: true,
-    aliases: ['blackbox', 'bb', 'ai5'],
-    description: 'nigga black',
-    usage: 'blackbox tas tanong bugok',
-    credits: 'churchill',
+    aliases: ['aiv2'],
+    description: 'Your helpful assistant!',
+    usage: 'aiv2 [Test]',
+    credits: 'Developer',
     cooldown: 3,
 };
 
@@ -16,7 +16,7 @@ module.exports.run = async function({ api, event, args }) {
     const bulag = args.join(' ');
 
     if (!bulag) {
-        api.sendMessage('Please provide a question, for example: blackbox what is the meaning of life?', event.threadID, event.messageID);
+        api.sendMessage('Please provide a question', event.threadID, event.messageID);
         return;
     }
 
