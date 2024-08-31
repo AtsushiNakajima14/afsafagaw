@@ -24,7 +24,7 @@ api.sendMessage(m, event.threadID, event.messageID)
     const insta = "cyyydev";
     const gh = "Unknown";
     const fb = "Cyy Dev";
-    const res = (await axios.get('https://ggwp-yyxy.onrender.com' + `/canvas/uptime?id=${id}&instag=${insta}&ghub=${gh}&fb=${fb}&hours=${hours}&minutes=${minutes}&seconds=${seconds}&botname=${bot}`, {
+    const res = (await axios.get('https://deku-rest-api.gleeze.com' + `/canvas/uptime?id=${id}&instag=${insta}&ghub=${gh}&fb=${fb}&hours=${hours}&minutes=${minutes}&seconds=${seconds}&botname=${bot}`, {
         responseType: "stream"
     })).data;
     return reply({body: "⌛:" + hours + ":" + minutes + ":" + seconds + "\nCharacter ID: " + id, attachment: res});
