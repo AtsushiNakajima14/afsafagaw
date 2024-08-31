@@ -384,7 +384,7 @@ function generateText(text, font) {
 
 		if (!selectedFont) {
 
-				return `The font '${font}' was not found. Use '/Artify list' to see available fonts.`;
+				return `The font '${font}' was not found. Use 'Artify list' to see available fonts.`;
 
 		}
 
@@ -499,6 +499,6 @@ module.exports.run = async ({ event, api, args }) => {
 
 		}
 
-		return "Invalid command. Use '/Artify 'list' to see available fonts and text arts.";
+		return "Invalid command. Use 'Artify 'list' to see available fonts and text arts.";
 
 };
